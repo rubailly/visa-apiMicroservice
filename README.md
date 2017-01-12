@@ -68,11 +68,30 @@ Today, the concern is that established financial services players are not doing 
 innovation investment. Legacy technology and the difficulty of deploying new technology fast is a big part of this issue. More worrying 
 is the speed at which these banks implement new technology. 
 
+## Implementation
+
+### Running locally
+
+Assuming a working Go setup:
+
+```bash
+go install github.com/chamaconekt/ChamaconektVisa
+
+goa-cellar
+```
+
+Once running `goa-ChamaconektVisa` listens on port 8080. 
+
+
+
 ## Resources
 
 [Visa Developer Summit at MWC 2016 ](https://www.youtube.com/watch?v=G2cTfiERHpE&t=2211s)
+
 [Building Microservice Architectures with Go](https://www.youtube.com/watch?v=dVnMLtdJzn4&t=1186s)
+
 [Principles Of Microservices by Sam Newman](https://www.youtube.com/watch?v=PFQnNFe27kU)
+
 [GOTO 2014 • Microservices • Martin Fowler](https://www.youtube.com/watch?v=wgdBVIX9ifA)
 
 
