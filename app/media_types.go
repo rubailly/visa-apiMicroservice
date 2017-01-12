@@ -20,7 +20,7 @@ import (
 
 // deposits media type (default view)
 //
-// Identifier: application/vnd.commercialbank+json; view=default
+// Identifier: application/vnd.depositsmedia+json; view=default
 type Deposits struct {
 	ID *string `form:"ID,omitempty" json:"ID,omitempty" xml:"ID,omitempty"`
 	// Country of the originator BIN.

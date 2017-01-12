@@ -92,7 +92,7 @@ definitions:
         type: string
     title: DepositsPayload
     type: object
-  application/vnd.commercialbank:
+  application/vnd.depositsmedia:
     description: deposits media type (default view)
     example:
       ID: Nostrum ut in nihil quis minima impedit.
@@ -186,7 +186,7 @@ definitions:
       transactionIdentifier:
         example: Earum eius quia.
         type: string
-    title: 'Mediatype identifier: application/vnd.commercialbank+json'
+    title: 'Mediatype identifier: application/vnd.depositsmedia+json'
     type: object
 host: localhost:8080
 info:

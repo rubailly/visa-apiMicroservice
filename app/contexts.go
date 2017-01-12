@@ -73,6 +73,6 @@ func NewShowDepositsContext(ctx context.Context, service *goa.Service) (*ShowDep
 
 // OK sends a HTTP response with status code 200.
 func (ctx *ShowDepositsContext) OK(r *Deposits) error {
-	ctx.ResponseData.Header().Set("Content-Type", "application/vnd.commercialbank+json")
+	ctx.ResponseData.Header().Set("Content-Type", "application/vnd.depositsmedia+json")
 	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
 }
