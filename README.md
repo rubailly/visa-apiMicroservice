@@ -76,8 +76,10 @@ Assuming a working Go setup:
 
 ```bash
 go install github.com/chamaconekt/ChamaconektVisa
+```
 
-goa-cellar
+```bash
+goa-ChamaconektVisa
 ```
 
 Once running `goa-ChamaconektVisa` listens on port 8080. 
