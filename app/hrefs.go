@@ -22,3 +22,9 @@ func DepositsHref(id interface{}) string {
 	paramid := strings.TrimLeftFunc(fmt.Sprintf("%v", id), func(r rune) bool { return r == '/' })
 	return fmt.Sprintf("/deposits/%v", paramid)
 }
+
+// WithdrawalHref returns the resource href.
+func WithdrawalHref(id interface{}) string {
+	paramid := strings.TrimLeftFunc(fmt.Sprintf("%v", id), func(r rune) bool { return r == '/' })
+	return fmt.Sprintf("/withdrawal/%v", paramid)
+}

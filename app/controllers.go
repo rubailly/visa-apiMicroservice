@@ -96,3 +96,67 @@ func unmarshalCreateDepositsPayload(ctx context.Context, service *goa.Service, r
 	goa.ContextRequest(ctx).Payload = payload.Publicize()
 	return nil
 }
+
+// WithdrawalController is the controller interface for the Withdrawal actions.
+type WithdrawalController interface {
+	goa.Muxer
+	Create(*CreateWithdrawalContext) error
+	Show(*ShowWithdrawalContext) error
+}
+
+// MountWithdrawalController "mounts" a Withdrawal resource controller on the given service.
+func MountWithdrawalController(service *goa.Service, ctrl WithdrawalController) {
+	initService(service)
+	var h goa.Handler
+
+	h = func(ctx context.Context, rw http.ResponseWriter, req *http.Request) error {
+		// Check if there was an error loading the request
+		if err := goa.ContextError(ctx); err != nil {
+			return err
+		}
+		// Build the context
+		rctx, err := NewCreateWithdrawalContext(ctx, service)
+		if err != nil {
+			return err
+		}
+		// Build the payload
+		if rawPayload := goa.ContextRequest(ctx).Payload; rawPayload != nil {
+			rctx.Payload = rawPayload.(*WithdrawalPayload)
+		} else {
+			return goa.MissingPayloadError()
+		}
+		return ctrl.Create(rctx)
+	}
+	service.Mux.Handle("POST", "/withdrawal", ctrl.MuxHandler("Create", h, unmarshalCreateWithdrawalPayload))
+	service.LogInfo("mount", "ctrl", "Withdrawal", "action", "Create", "route", "POST /withdrawal")
+
+	h = func(ctx context.Context, rw http.ResponseWriter, req *http.Request) error {
+		// Check if there was an error loading the request
+		if err := goa.ContextError(ctx); err != nil {
+			return err
+		}
+		// Build the context
+		rctx, err := NewShowWithdrawalContext(ctx, service)
+		if err != nil {
+			return err
+		}
+		return ctrl.Show(rctx)
+	}
+	service.Mux.Handle("GET", "/withdrawal/:id", ctrl.MuxHandler("Show", h, nil))
+	service.LogInfo("mount", "ctrl", "Withdrawal", "action", "Show", "route", "GET /withdrawal/:id")
+}
+
+// unmarshalCreateWithdrawalPayload unmarshals the request body into the context request data Payload field.
+func unmarshalCreateWithdrawalPayload(ctx context.Context, service *goa.Service, req *http.Request) error {
+	payload := &withdrawalPayload{}
+	if err := service.DecodeRequest(req, payload); err != nil {
+		return err
+	}
+	if err := payload.Validate(); err != nil {
+		// Initialize payload with private data structure so it can be logged
+		goa.ContextRequest(ctx).Payload = payload
+		return err
+	}
+	goa.ContextRequest(ctx).Payload = payload.Publicize()
+	return nil
+}

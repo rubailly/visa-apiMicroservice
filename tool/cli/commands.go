@@ -29,6 +29,19 @@ type (
 		ID          int
 		PrettyPrint bool
 	}
+
+	// CreateWithdrawalCommand is the command line data structure for the create action of withdrawal
+	CreateWithdrawalCommand struct {
+		Payload     string
+		ContentType string
+		PrettyPrint bool
+	}
+
+	// ShowWithdrawalCommand is the command line data structure for the show action of withdrawal
+	ShowWithdrawalCommand struct {
+		ID          int
+		PrettyPrint bool
+	}
 )
 
 // RegisterCommands registers the resource action CLI commands.
@@ -36,7 +49,7 @@ func RegisterCommands(app *cobra.Command, c *client.Client) {
 	var command, sub *cobra.Command
 	command = &cobra.Command{
 		Use:   "create",
-		Short: `creates a deposit`,
+		Short: `create action`,
 	}
 	tmp1 := new(CreateDepositsCommand)
 	sub = &cobra.Command{
@@ -51,7 +64,7 @@ Payload example:
    "acquiringBin": 400171,
    "amount": 12400,
    "businessApplicationId": "CI",
-   "localTransactionDateTime": "2008-01-06T10:30:05+03:00",
+   "localTransactionDateTime": "1984-10-06T15:03:29+03:00",
    "merchantCategoryCode": 4829,
    "recipientPrimaryAccountNumber": "4123640062698797",
    "retrievalReferenceNumber": "430000367618",
@@ -66,19 +79,56 @@ Payload example:
 	tmp1.RegisterFlags(sub, c)
 	sub.PersistentFlags().BoolVar(&tmp1.PrettyPrint, "pp", false, "Pretty print response body")
 	command.AddCommand(sub)
-	app.AddCommand(command)
-	command = &cobra.Command{
-		Use:   "show",
-		Short: `shows a deposit`,
-	}
-	tmp2 := new(ShowDepositsCommand)
+	tmp2 := new(CreateWithdrawalCommand)
 	sub = &cobra.Command{
-		Use:   `deposits ["/deposits/ID"]`,
-		Short: `Cash deposit to client account at mVisa agent `,
-		RunE:  func(cmd *cobra.Command, args []string) error { return tmp2.Run(c, args) },
+		Use:   `withdrawal ["/withdrawal"]`,
+		Short: `Cash withdrawal by client from account at mVisa agent `,
+		Long: `Cash withdrawal by client from account at mVisa agent 
+
+Payload example:
+
+{
+   "acquirerCountryCode": 643,
+   "acquiringBin": 400171,
+   "amount": 12400,
+   "businessApplicationId": "CI",
+   "localTransactionDateTime": "2013-08-16T20:25:03+03:00",
+   "merchantCategoryCode": 4829,
+   "recipientPrimaryAccountNumber": "4123640062698797",
+   "retrievalReferenceNumber": "430000367618",
+   "senderAccountNumber": "4541237895236",
+   "senderName": "Mohammed Qasim",
+   "senderReference": "1234",
+   "systemsTraceAuditNumber": 313042,
+   "transactionCurrencyCode": "USD"
+}`,
+		RunE: func(cmd *cobra.Command, args []string) error { return tmp2.Run(c, args) },
 	}
 	tmp2.RegisterFlags(sub, c)
 	sub.PersistentFlags().BoolVar(&tmp2.PrettyPrint, "pp", false, "Pretty print response body")
+	command.AddCommand(sub)
+	app.AddCommand(command)
+	command = &cobra.Command{
+		Use:   "show",
+		Short: `show action`,
+	}
+	tmp3 := new(ShowDepositsCommand)
+	sub = &cobra.Command{
+		Use:   `deposits ["/deposits/ID"]`,
+		Short: `Cash deposit to client account at mVisa agent `,
+		RunE:  func(cmd *cobra.Command, args []string) error { return tmp3.Run(c, args) },
+	}
+	tmp3.RegisterFlags(sub, c)
+	sub.PersistentFlags().BoolVar(&tmp3.PrettyPrint, "pp", false, "Pretty print response body")
+	command.AddCommand(sub)
+	tmp4 := new(ShowWithdrawalCommand)
+	sub = &cobra.Command{
+		Use:   `withdrawal ["/withdrawal/ID"]`,
+		Short: `Cash withdrawal by client from account at mVisa agent `,
+		RunE:  func(cmd *cobra.Command, args []string) error { return tmp4.Run(c, args) },
+	}
+	tmp4.RegisterFlags(sub, c)
+	sub.PersistentFlags().BoolVar(&tmp4.PrettyPrint, "pp", false, "Pretty print response body")
 	command.AddCommand(sub)
 	app.AddCommand(command)
 }
@@ -291,6 +341,65 @@ func (cmd *ShowDepositsCommand) Run(c *client.Client, args []string) error {
 
 // RegisterFlags registers the command flags with the command line.
 func (cmd *ShowDepositsCommand) RegisterFlags(cc *cobra.Command, c *client.Client) {
+	var id int
+	cc.Flags().IntVar(&cmd.ID, "id", id, ``)
+}
+
+// Run makes the HTTP request corresponding to the CreateWithdrawalCommand command.
+func (cmd *CreateWithdrawalCommand) Run(c *client.Client, args []string) error {
+	var path string
+	if len(args) > 0 {
+		path = args[0]
+	} else {
+		path = "/withdrawal"
+	}
+	var payload client.WithdrawalPayload
+	if cmd.Payload != "" {
+		err := json.Unmarshal([]byte(cmd.Payload), &payload)
+		if err != nil {
+			return fmt.Errorf("failed to deserialize payload: %s", err)
+		}
+	}
+	logger := goa.NewLogger(log.New(os.Stderr, "", log.LstdFlags))
+	ctx := goa.WithLogger(context.Background(), logger)
+	resp, err := c.CreateWithdrawal(ctx, path, &payload, cmd.ContentType)
+	if err != nil {
+		goa.LogError(ctx, "failed", "err", err)
+		return err
+	}
+
+	goaclient.HandleResponse(c.Client, resp, cmd.PrettyPrint)
+	return nil
+}
+
+// RegisterFlags registers the command flags with the command line.
+func (cmd *CreateWithdrawalCommand) RegisterFlags(cc *cobra.Command, c *client.Client) {
+	cc.Flags().StringVar(&cmd.Payload, "payload", "", "Request body encoded in JSON")
+	cc.Flags().StringVar(&cmd.ContentType, "content", "", "Request content type override, e.g. 'application/x-www-form-urlencoded'")
+}
+
+// Run makes the HTTP request corresponding to the ShowWithdrawalCommand command.
+func (cmd *ShowWithdrawalCommand) Run(c *client.Client, args []string) error {
+	var path string
+	if len(args) > 0 {
+		path = args[0]
+	} else {
+		path = fmt.Sprintf("/withdrawal/%v", cmd.ID)
+	}
+	logger := goa.NewLogger(log.New(os.Stderr, "", log.LstdFlags))
+	ctx := goa.WithLogger(context.Background(), logger)
+	resp, err := c.ShowWithdrawal(ctx, path)
+	if err != nil {
+		goa.LogError(ctx, "failed", "err", err)
+		return err
+	}
+
+	goaclient.HandleResponse(c.Client, resp, cmd.PrettyPrint)
+	return nil
+}
+
+// RegisterFlags registers the command flags with the command line.
+func (cmd *ShowWithdrawalCommand) RegisterFlags(cc *cobra.Command, c *client.Client) {
 	var id int
 	cc.Flags().IntVar(&cmd.ID, "id", id, ``)
 }
