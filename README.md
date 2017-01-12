@@ -6,7 +6,7 @@ The innovation race is on in the financial services industry globally and it has
 portals.Networks, processors and banks are launching developer portals and inviting all developers to explore their Open APIs to build 
 their own rendition of the next killer application.
 
-As Chamaconekt, we are leveraging on such open APIs with payment systems like Visa Inc. to help us build the next generation of products 
+As Chamaconekt, we are leveraging on such open APIs with payment systems like [Visa Inc.]() to help us build the next generation of products 
 and services for the financial services industry because of the tremendous opportunity it presents us as a community.The expectations of 
 a modern consumer have changed dramatically over the last few years, and consumers are asking for services that are more personalized, 
 faster, cheaper, and more easily accessible. The queues at the retail bank branches are getting smaller, and the younger consumers 
@@ -22,7 +22,7 @@ limited by the mobile network they have or the handset they use.
 
 Visa is the world's largest global payments company. In 2015, Visa processed $4.9 trillion worth of payment volume on Visa branded cards 
 globally.Visa has 2.4 billion cards in circulation and connects 36 million merchants locations with 14,000 plus financial institutions 
-done approximately 150 million times a day on the globe. Last year, Visa launched the Visa developer platform.This was a transformational 
+done approximately 150 million times a day on the globe. Last year, Visa launched the [Visa developer platform]().This was a transformational 
 development for Visa. It is a significant change in the way Visa will design, build and deliver products going forward. It's the first 
 time in Visa's 50 year history that they have made their network, data , risk services , value added services available to partners , 
 clients and others as open APIs.
@@ -67,6 +67,14 @@ costs or create a new market opportunity.
 Today, the concern is that established financial services players are not doing enough to keep up to speed with this surge in new 
 innovation investment. Legacy technology and the difficulty of deploying new technology fast is a big part of this issue. More worrying 
 is the speed at which these banks implement new technology. 
+
+## Resources
+
+[Visa Developer Summit at MWC 2016 ](https://www.youtube.com/watch?v=G2cTfiERHpE&t=2211s)
+[Building Microservice Architectures with Go](https://www.youtube.com/watch?v=dVnMLtdJzn4&t=1186s)
+[Principles Of Microservices by Sam Newman](https://www.youtube.com/watch?v=PFQnNFe27kU)
+[GOTO 2014 • Microservices • Martin Fowler](https://www.youtube.com/watch?v=wgdBVIX9ifA)
+
 
 
  
