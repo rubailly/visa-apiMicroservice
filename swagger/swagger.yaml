@@ -1,0 +1,250 @@
+consumes:
+- application/json
+- application/xml
+- application/gob
+- application/x-gob
+definitions:
+  DepositsPayload:
+    description: DepositsPayload is the type used to create deposits.
+    example:
+      acquirerCountryCode: 643
+      acquiringBin: 400171
+      amount: 12400
+      businessApplicationId: CI
+      localTransactionDateTime: 2008-01-06T10:30:05+03:00
+      merchantCategoryCode: 4829
+      recipientPrimaryAccountNumber: "4123640062698797"
+      retrievalReferenceNumber: "430000367618"
+      senderAccountNumber: "4541237895236"
+      senderName: Mohammed Qasim
+      senderReference: "1234"
+      systemsTraceAuditNumber: 313042
+      transactionCurrencyCode: USD
+    properties:
+      acquirerCountryCode:
+        description: Country of the originator BIN.
+        example: 643
+        format: int64
+        type: integer
+      acquiringBin:
+        description: BIN number identifies the originator of cash in transaction.
+        example: 400171
+        format: int64
+        type: integer
+      amount:
+        description: Transaction amount in agent currency
+        example: 12400
+        format: int64
+        type: integer
+      businessApplicationId:
+        description: This field is populated with business application identifier
+          for the transaction.
+        example: CI
+        maxLength: 2
+        minLength: 2
+        type: string
+      localTransactionDateTime:
+        description: 'The date and time the transaction takes place, '
+        example: 2008-01-06T10:30:05+03:00
+        format: date-time
+        type: string
+      merchantCategoryCode:
+        description: Originators should populate 6012 for mVisa transaction.
+        example: 4829
+        format: int64
+        type: integer
+      recipientPrimaryAccountNumber:
+        description: Consumer PAN.16-digit PAN as provided by the consumer to agent.
+        example: "4123640062698797"
+        maxLength: 19
+        minLength: 13
+        type: string
+      retrievalReferenceNumber:
+        description: Matches message to others within a given transaction
+        example: "430000367618"
+        maxLength: 12
+        minLength: 12
+        type: string
+      senderAccountNumber:
+        description: mVisa cash-in transactions
+        example: "4541237895236"
+        type: string
+      senderName:
+        description: Name of agents business name
+        example: Mohammed Qasim
+        maxLength: 30
+        type: string
+      senderReference:
+        description: A reference number unique to the agent
+        example: "1234"
+        maxLength: 16
+        type: string
+      systemsTraceAuditNumber:
+        description: Key data element
+        example: 313042
+        format: int64
+        type: integer
+      transactionCurrencyCode:
+        description: Currency code
+        example: USD
+        maxLength: 3
+        minLength: 3
+        type: string
+    title: DepositsPayload
+    type: object
+  application/vnd.commercialbank:
+    description: deposits media type (default view)
+    example:
+      ID: Nostrum ut in nihil quis minima impedit.
+      acquirerCountryCode: 643
+      acquiringBin: 400171
+      amount: 12400
+      businessApplicationId: CI
+      localTransactionDateTime: 1984-10-31T05:16:46+03:00
+      merchantCategoryCode: 4829
+      recipientPrimaryAccountNumber: "4123640062698797"
+      retrievalReferenceNumber: "430000367618"
+      senderAccountNumber: "4541237895236"
+      senderName: Mohammed Qasim
+      senderReference: "1234"
+      systemsTraceAuditNumber: 313042
+      transactionCurrencyCode: USD
+      transactionIdentifier: Earum eius quia.
+    properties:
+      ID:
+        example: Nostrum ut in nihil quis minima impedit.
+        type: string
+      acquirerCountryCode:
+        description: Country of the originator BIN.
+        example: 643
+        format: int64
+        type: integer
+      acquiringBin:
+        description: BIN number identifies the originator of cash in transaction.
+        example: 400171
+        format: int64
+        type: integer
+      amount:
+        description: Transaction amount in agent currency
+        example: 12400
+        format: int64
+        type: integer
+      businessApplicationId:
+        description: This field is populated with business application identifier
+          for the transaction.
+        example: CI
+        maxLength: 2
+        minLength: 2
+        type: string
+      localTransactionDateTime:
+        description: 'The date and time the transaction takes place, '
+        example: 1984-10-31T05:16:46+03:00
+        format: date-time
+        type: string
+      merchantCategoryCode:
+        description: Originators should populate 6012 for mVisa transaction.
+        example: 4829
+        format: int64
+        type: integer
+      recipientPrimaryAccountNumber:
+        description: Consumer PAN.16-digit PAN as provided by the consumer to agent.
+        example: "4123640062698797"
+        maxLength: 19
+        minLength: 13
+        type: string
+      retrievalReferenceNumber:
+        description: Matches message to others within a given transaction
+        example: "430000367618"
+        maxLength: 12
+        minLength: 12
+        type: string
+      senderAccountNumber:
+        description: mVisa cash-in transactions
+        example: "4541237895236"
+        type: string
+      senderName:
+        description: Name of agents business name
+        example: Mohammed Qasim
+        maxLength: 30
+        type: string
+      senderReference:
+        description: A reference number unique to the agent
+        example: "1234"
+        maxLength: 16
+        type: string
+      systemsTraceAuditNumber:
+        description: Key data element
+        example: 313042
+        format: int64
+        type: integer
+      transactionCurrencyCode:
+        description: Currency code
+        example: USD
+        maxLength: 3
+        minLength: 3
+        type: string
+      transactionIdentifier:
+        example: Earum eius quia.
+        type: string
+    title: 'Mediatype identifier: application/vnd.commercialbank+json'
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: ondengew@gmail.com
+    name: William Ondenge
+  description: A Chamaconekt API service that interacts with the Visa API
+  license:
+    name: Apache 2.0
+  title: The Visa Payment Service
+  version: ""
+paths:
+  /deposits:
+    post:
+      description: creates a deposit
+      operationId: deposits#create
+      parameters:
+      - description: DepositsPayload is the type used to create deposits.
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/DepositsPayload'
+      responses:
+        "201":
+          description: Created
+      schemes:
+      - http
+      summary: create deposits
+      tags:
+      - deposits
+  /deposits/{id}:
+    get:
+      description: shows a deposit
+      operationId: deposits#show
+      parameters:
+      - in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/deposits'
+      schemes:
+      - http
+      summary: show deposits
+      tags:
+      - deposits
+produces:
+- application/json
+- application/xml
+- application/gob
+- application/x-gob
+responses:
+  Created:
+    description: Created
+schemes:
+- http
+swagger: "2.0"
