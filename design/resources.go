@@ -5,14 +5,14 @@ import (
 	. "github.com/goadesign/goa/design/apidsl"
 )
 
-var _ = Resource("deposits", func() {
+var _ = Resource("deposit", func() {
 	Description("Cash deposit to client account at mVisa agent ")
-	BasePath("/deposits")
+	BasePath("/deposit")
 
 	Action("create", func() {
 		Description("creates a deposit")
 		Routing(POST("/"))
-		Payload(DepositsPayload)
+		Payload(DepositPayload)
 		Response(Created)
 	})
 
@@ -22,7 +22,7 @@ var _ = Resource("deposits", func() {
 		Params(func() {
 			Param("id", Integer)
 		})
-		Response(OK, DepositsMedia)
+		Response(OK, DepositMedia)
 	})
 })
 
