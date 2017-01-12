@@ -7,10 +7,10 @@ import (
 
 // Input Type.This defines the shape of the request.
 
-// DepositsPayload defines the data structure used in the create deposit request body
+// DepositPayload defines the data structure used in the create deposit request body
 // It is also the base type for the deposit media type used to render deposits.
 
-var DepositsPayload = Type("DepositsPayload", func() {
+var DepositPayload = Type("DepositPayload", func() {
 	Description("DepositsPayload is the type used to create deposits.")
 
 	Attribute("acquirerCountryCode", Integer, "Country of the originator BIN.", func() {
