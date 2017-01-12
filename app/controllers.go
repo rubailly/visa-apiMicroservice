@@ -33,15 +33,15 @@ func initService(service *goa.Service) {
 	service.Decoder.Register(goa.NewJSONDecoder, "*/*")
 }
 
-// DepositsController is the controller interface for the Deposits actions.
-type DepositsController interface {
+// DepositController is the controller interface for the Deposit actions.
+type DepositController interface {
 	goa.Muxer
-	Create(*CreateDepositsContext) error
-	Show(*ShowDepositsContext) error
+	Create(*CreateDepositContext) error
+	Show(*ShowDepositContext) error
 }
 
-// MountDepositsController "mounts" a Deposits resource controller on the given service.
-func MountDepositsController(service *goa.Service, ctrl DepositsController) {
+// MountDepositController "mounts" a Deposit resource controller on the given service.
+func MountDepositController(service *goa.Service, ctrl DepositController) {
 	initService(service)
 	var h goa.Handler
 
@@ -51,20 +51,20 @@ func MountDepositsController(service *goa.Service, ctrl DepositsController) {
 			return err
 		}
 		// Build the context
-		rctx, err := NewCreateDepositsContext(ctx, service)
+		rctx, err := NewCreateDepositContext(ctx, service)
 		if err != nil {
 			return err
 		}
 		// Build the payload
 		if rawPayload := goa.ContextRequest(ctx).Payload; rawPayload != nil {
-			rctx.Payload = rawPayload.(*DepositsPayload)
+			rctx.Payload = rawPayload.(*DepositPayload)
 		} else {
 			return goa.MissingPayloadError()
 		}
 		return ctrl.Create(rctx)
 	}
-	service.Mux.Handle("POST", "/deposits", ctrl.MuxHandler("Create", h, unmarshalCreateDepositsPayload))
-	service.LogInfo("mount", "ctrl", "Deposits", "action", "Create", "route", "POST /deposits")
+	service.Mux.Handle("POST", "/deposit", ctrl.MuxHandler("Create", h, unmarshalCreateDepositPayload))
+	service.LogInfo("mount", "ctrl", "Deposit", "action", "Create", "route", "POST /deposit")
 
 	h = func(ctx context.Context, rw http.ResponseWriter, req *http.Request) error {
 		// Check if there was an error loading the request
@@ -72,19 +72,19 @@ func MountDepositsController(service *goa.Service, ctrl DepositsController) {
 			return err
 		}
 		// Build the context
-		rctx, err := NewShowDepositsContext(ctx, service)
+		rctx, err := NewShowDepositContext(ctx, service)
 		if err != nil {
 			return err
 		}
 		return ctrl.Show(rctx)
 	}
-	service.Mux.Handle("GET", "/deposits/:id", ctrl.MuxHandler("Show", h, nil))
-	service.LogInfo("mount", "ctrl", "Deposits", "action", "Show", "route", "GET /deposits/:id")
+	service.Mux.Handle("GET", "/deposit/:id", ctrl.MuxHandler("Show", h, nil))
+	service.LogInfo("mount", "ctrl", "Deposit", "action", "Show", "route", "GET /deposit/:id")
 }
 
-// unmarshalCreateDepositsPayload unmarshals the request body into the context request data Payload field.
-func unmarshalCreateDepositsPayload(ctx context.Context, service *goa.Service, req *http.Request) error {
-	payload := &depositsPayload{}
+// unmarshalCreateDepositPayload unmarshals the request body into the context request data Payload field.
+func unmarshalCreateDepositPayload(ctx context.Context, service *goa.Service, req *http.Request) error {
+	payload := &depositPayload{}
 	if err := service.DecodeRequest(req, payload); err != nil {
 		return err
 	}

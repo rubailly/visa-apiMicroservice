@@ -17,10 +17,10 @@ import (
 	"strings"
 )
 
-// DepositsHref returns the resource href.
-func DepositsHref(id interface{}) string {
+// DepositHref returns the resource href.
+func DepositHref(id interface{}) string {
 	paramid := strings.TrimLeftFunc(fmt.Sprintf("%v", id), func(r rune) bool { return r == '/' })
-	return fmt.Sprintf("/deposits/%v", paramid)
+	return fmt.Sprintf("/deposit/%v", paramid)
 }
 
 // WithdrawalHref returns the resource href.

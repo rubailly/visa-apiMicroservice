@@ -17,15 +17,15 @@ import (
 )
 
 type (
-	// CreateDepositsCommand is the command line data structure for the create action of deposits
-	CreateDepositsCommand struct {
+	// CreateDepositCommand is the command line data structure for the create action of deposit
+	CreateDepositCommand struct {
 		Payload     string
 		ContentType string
 		PrettyPrint bool
 	}
 
-	// ShowDepositsCommand is the command line data structure for the show action of deposits
-	ShowDepositsCommand struct {
+	// ShowDepositCommand is the command line data structure for the show action of deposit
+	ShowDepositCommand struct {
 		ID          int
 		PrettyPrint bool
 	}
@@ -51,9 +51,9 @@ func RegisterCommands(app *cobra.Command, c *client.Client) {
 		Use:   "create",
 		Short: `create action`,
 	}
-	tmp1 := new(CreateDepositsCommand)
+	tmp1 := new(CreateDepositCommand)
 	sub = &cobra.Command{
-		Use:   `deposits ["/deposits"]`,
+		Use:   `deposit ["/deposit"]`,
 		Short: `Cash deposit to client account at mVisa agent `,
 		Long: `Cash deposit to client account at mVisa agent 
 
@@ -112,9 +112,9 @@ Payload example:
 		Use:   "show",
 		Short: `show action`,
 	}
-	tmp3 := new(ShowDepositsCommand)
+	tmp3 := new(ShowDepositCommand)
 	sub = &cobra.Command{
-		Use:   `deposits ["/deposits/ID"]`,
+		Use:   `deposit ["/deposit/ID"]`,
 		Short: `Cash deposit to client account at mVisa agent `,
 		RunE:  func(cmd *cobra.Command, args []string) error { return tmp3.Run(c, args) },
 	}
@@ -286,15 +286,15 @@ func boolArray(ins []string) ([]bool, error) {
 	return vals, nil
 }
 
-// Run makes the HTTP request corresponding to the CreateDepositsCommand command.
-func (cmd *CreateDepositsCommand) Run(c *client.Client, args []string) error {
+// Run makes the HTTP request corresponding to the CreateDepositCommand command.
+func (cmd *CreateDepositCommand) Run(c *client.Client, args []string) error {
 	var path string
 	if len(args) > 0 {
 		path = args[0]
 	} else {
-		path = "/deposits"
+		path = "/deposit"
 	}
-	var payload client.DepositsPayload
+	var payload client.DepositPayload
 	if cmd.Payload != "" {
 		err := json.Unmarshal([]byte(cmd.Payload), &payload)
 		if err != nil {
@@ -303,7 +303,7 @@ func (cmd *CreateDepositsCommand) Run(c *client.Client, args []string) error {
 	}
 	logger := goa.NewLogger(log.New(os.Stderr, "", log.LstdFlags))
 	ctx := goa.WithLogger(context.Background(), logger)
-	resp, err := c.CreateDeposits(ctx, path, &payload, cmd.ContentType)
+	resp, err := c.CreateDeposit(ctx, path, &payload, cmd.ContentType)
 	if err != nil {
 		goa.LogError(ctx, "failed", "err", err)
 		return err
@@ -314,22 +314,22 @@ func (cmd *CreateDepositsCommand) Run(c *client.Client, args []string) error {
 }
 
 // RegisterFlags registers the command flags with the command line.
-func (cmd *CreateDepositsCommand) RegisterFlags(cc *cobra.Command, c *client.Client) {
+func (cmd *CreateDepositCommand) RegisterFlags(cc *cobra.Command, c *client.Client) {
 	cc.Flags().StringVar(&cmd.Payload, "payload", "", "Request body encoded in JSON")
 	cc.Flags().StringVar(&cmd.ContentType, "content", "", "Request content type override, e.g. 'application/x-www-form-urlencoded'")
 }
 
-// Run makes the HTTP request corresponding to the ShowDepositsCommand command.
-func (cmd *ShowDepositsCommand) Run(c *client.Client, args []string) error {
+// Run makes the HTTP request corresponding to the ShowDepositCommand command.
+func (cmd *ShowDepositCommand) Run(c *client.Client, args []string) error {
 	var path string
 	if len(args) > 0 {
 		path = args[0]
 	} else {
-		path = fmt.Sprintf("/deposits/%v", cmd.ID)
+		path = fmt.Sprintf("/deposit/%v", cmd.ID)
 	}
 	logger := goa.NewLogger(log.New(os.Stderr, "", log.LstdFlags))
 	ctx := goa.WithLogger(context.Background(), logger)
-	resp, err := c.ShowDeposits(ctx, path)
+	resp, err := c.ShowDeposit(ctx, path)
 	if err != nil {
 		goa.LogError(ctx, "failed", "err", err)
 		return err
@@ -340,7 +340,7 @@ func (cmd *ShowDepositsCommand) Run(c *client.Client, args []string) error {
 }
 
 // RegisterFlags registers the command flags with the command line.
-func (cmd *ShowDepositsCommand) RegisterFlags(cc *cobra.Command, c *client.Client) {
+func (cmd *ShowDepositCommand) RegisterFlags(cc *cobra.Command, c *client.Client) {
 	var id int
 	cc.Flags().IntVar(&cmd.ID, "id", id, ``)
 }

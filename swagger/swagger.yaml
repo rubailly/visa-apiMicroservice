@@ -4,7 +4,7 @@ consumes:
 - application/gob
 - application/x-gob
 definitions:
-  DepositsPayload:
+  DepositPayload:
     description: DepositsPayload is the type used to create deposits.
     example:
       acquirerCountryCode: 643
@@ -90,7 +90,7 @@ definitions:
         maxLength: 3
         minLength: 3
         type: string
-    title: DepositsPayload
+    title: DepositPayload
     type: object
   WithdrawalPayload:
     description: WithdrawalPayload is the type used to create a withdrawal.
@@ -180,8 +180,8 @@ definitions:
         type: string
     title: WithdrawalPayload
     type: object
-  application/vnd.depositsmedia:
-    description: deposits media type (default view)
+  application/vnd.depositmedia:
+    description: deposit media type (default view)
     example:
       ID: Nostrum ut in nihil quis minima impedit.
       acquirerCountryCode: 643
@@ -274,7 +274,7 @@ definitions:
       transactionIdentifier:
         example: Earum eius quia.
         type: string
-    title: 'Mediatype identifier: application/vnd.depositsmedia+json'
+    title: 'Mediatype identifier: application/vnd.depositmedia+json'
     type: object
   application/vnd.withdrawalmedia:
     description: withdrawal media type (default view)
@@ -383,29 +383,29 @@ info:
   title: The Visa Payment Service
   version: ""
 paths:
-  /deposits:
+  /deposit:
     post:
       description: creates a deposit
-      operationId: deposits#create
+      operationId: deposit#create
       parameters:
       - description: DepositsPayload is the type used to create deposits.
         in: body
         name: payload
         required: true
         schema:
-          $ref: '#/definitions/DepositsPayload'
+          $ref: '#/definitions/DepositPayload'
       responses:
         "201":
           description: Created
       schemes:
       - http
-      summary: create deposits
+      summary: create deposit
       tags:
-      - deposits
-  /deposits/{id}:
+      - deposit
+  /deposit/{id}:
     get:
       description: shows a deposit
-      operationId: deposits#show
+      operationId: deposit#show
       parameters:
       - in: path
         name: id
@@ -415,12 +415,12 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/deposits'
+            $ref: '#/definitions/deposit'
       schemes:
       - http
-      summary: show deposits
+      summary: show deposit
       tags:
-      - deposits
+      - deposit
   /withdrawal:
     post:
       description: creates a withdrawal

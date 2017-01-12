@@ -18,10 +18,10 @@ import (
 	"unicode/utf8"
 )
 
-// deposits media type (default view)
+// deposit media type (default view)
 //
-// Identifier: application/vnd.depositsmedia+json; view=default
-type Deposits struct {
+// Identifier: application/vnd.depositmedia+json; view=default
+type Deposit struct {
 	ID *string `form:"ID,omitempty" json:"ID,omitempty" xml:"ID,omitempty"`
 	// Country of the originator BIN.
 	AcquirerCountryCode *int `form:"acquirerCountryCode,omitempty" json:"acquirerCountryCode,omitempty" xml:"acquirerCountryCode,omitempty"`
@@ -52,8 +52,8 @@ type Deposits struct {
 	TransactionIdentifier   *string `form:"transactionIdentifier,omitempty" json:"transactionIdentifier,omitempty" xml:"transactionIdentifier,omitempty"`
 }
 
-// Validate validates the Deposits media type instance.
-func (mt *Deposits) Validate() (err error) {
+// Validate validates the Deposit media type instance.
+func (mt *Deposit) Validate() (err error) {
 	if mt.BusinessApplicationID != nil {
 		if utf8.RuneCountInString(*mt.BusinessApplicationID) < 2 {
 			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.businessApplicationId`, *mt.BusinessApplicationID, utf8.RuneCountInString(*mt.BusinessApplicationID), 2, true))

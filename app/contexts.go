@@ -18,47 +18,47 @@ import (
 	"strconv"
 )
 
-// CreateDepositsContext provides the deposits create action context.
-type CreateDepositsContext struct {
+// CreateDepositContext provides the deposit create action context.
+type CreateDepositContext struct {
 	context.Context
 	*goa.ResponseData
 	*goa.RequestData
-	Payload *DepositsPayload
+	Payload *DepositPayload
 }
 
-// NewCreateDepositsContext parses the incoming request URL and body, performs validations and creates the
-// context used by the deposits controller create action.
-func NewCreateDepositsContext(ctx context.Context, service *goa.Service) (*CreateDepositsContext, error) {
+// NewCreateDepositContext parses the incoming request URL and body, performs validations and creates the
+// context used by the deposit controller create action.
+func NewCreateDepositContext(ctx context.Context, service *goa.Service) (*CreateDepositContext, error) {
 	var err error
 	resp := goa.ContextResponse(ctx)
 	resp.Service = service
 	req := goa.ContextRequest(ctx)
-	rctx := CreateDepositsContext{Context: ctx, ResponseData: resp, RequestData: req}
+	rctx := CreateDepositContext{Context: ctx, ResponseData: resp, RequestData: req}
 	return &rctx, err
 }
 
 // Created sends a HTTP response with status code 201.
-func (ctx *CreateDepositsContext) Created() error {
+func (ctx *CreateDepositContext) Created() error {
 	ctx.ResponseData.WriteHeader(201)
 	return nil
 }
 
-// ShowDepositsContext provides the deposits show action context.
-type ShowDepositsContext struct {
+// ShowDepositContext provides the deposit show action context.
+type ShowDepositContext struct {
 	context.Context
 	*goa.ResponseData
 	*goa.RequestData
 	ID int
 }
 
-// NewShowDepositsContext parses the incoming request URL and body, performs validations and creates the
-// context used by the deposits controller show action.
-func NewShowDepositsContext(ctx context.Context, service *goa.Service) (*ShowDepositsContext, error) {
+// NewShowDepositContext parses the incoming request URL and body, performs validations and creates the
+// context used by the deposit controller show action.
+func NewShowDepositContext(ctx context.Context, service *goa.Service) (*ShowDepositContext, error) {
 	var err error
 	resp := goa.ContextResponse(ctx)
 	resp.Service = service
 	req := goa.ContextRequest(ctx)
-	rctx := ShowDepositsContext{Context: ctx, ResponseData: resp, RequestData: req}
+	rctx := ShowDepositContext{Context: ctx, ResponseData: resp, RequestData: req}
 	paramID := req.Params["id"]
 	if len(paramID) > 0 {
 		rawID := paramID[0]
@@ -72,8 +72,8 @@ func NewShowDepositsContext(ctx context.Context, service *goa.Service) (*ShowDep
 }
 
 // OK sends a HTTP response with status code 200.
-func (ctx *ShowDepositsContext) OK(r *Deposits) error {
-	ctx.ResponseData.Header().Set("Content-Type", "application/vnd.depositsmedia+json")
+func (ctx *ShowDepositContext) OK(r *Deposit) error {
+	ctx.ResponseData.Header().Set("Content-Type", "application/vnd.depositmedia+json")
 	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
 }
 

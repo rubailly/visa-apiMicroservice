@@ -19,7 +19,7 @@ import (
 )
 
 // DepositsPayload is the type used to create deposits.
-type depositsPayload struct {
+type depositPayload struct {
 	// Country of the originator BIN.
 	AcquirerCountryCode *int `form:"acquirerCountryCode,omitempty" json:"acquirerCountryCode,omitempty" xml:"acquirerCountryCode,omitempty"`
 	// BIN number identifies the originator of cash in transaction.
@@ -48,8 +48,8 @@ type depositsPayload struct {
 	TransactionCurrencyCode *string `form:"transactionCurrencyCode,omitempty" json:"transactionCurrencyCode,omitempty" xml:"transactionCurrencyCode,omitempty"`
 }
 
-// Validate validates the depositsPayload type instance.
-func (ut *depositsPayload) Validate() (err error) {
+// Validate validates the depositPayload type instance.
+func (ut *depositPayload) Validate() (err error) {
 	if ut.BusinessApplicationID != nil {
 		if utf8.RuneCountInString(*ut.BusinessApplicationID) < 2 {
 			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.businessApplicationId`, *ut.BusinessApplicationID, utf8.RuneCountInString(*ut.BusinessApplicationID), 2, true))
@@ -103,9 +103,9 @@ func (ut *depositsPayload) Validate() (err error) {
 	return
 }
 
-// Publicize creates DepositsPayload from depositsPayload
-func (ut *depositsPayload) Publicize() *DepositsPayload {
-	var pub DepositsPayload
+// Publicize creates DepositPayload from depositPayload
+func (ut *depositPayload) Publicize() *DepositPayload {
+	var pub DepositPayload
 	if ut.AcquirerCountryCode != nil {
 		pub.AcquirerCountryCode = ut.AcquirerCountryCode
 	}
@@ -149,7 +149,7 @@ func (ut *depositsPayload) Publicize() *DepositsPayload {
 }
 
 // DepositsPayload is the type used to create deposits.
-type DepositsPayload struct {
+type DepositPayload struct {
 	// Country of the originator BIN.
 	AcquirerCountryCode *int `form:"acquirerCountryCode,omitempty" json:"acquirerCountryCode,omitempty" xml:"acquirerCountryCode,omitempty"`
 	// BIN number identifies the originator of cash in transaction.
@@ -178,8 +178,8 @@ type DepositsPayload struct {
 	TransactionCurrencyCode *string `form:"transactionCurrencyCode,omitempty" json:"transactionCurrencyCode,omitempty" xml:"transactionCurrencyCode,omitempty"`
 }
 
-// Validate validates the DepositsPayload type instance.
-func (ut *DepositsPayload) Validate() (err error) {
+// Validate validates the DepositPayload type instance.
+func (ut *DepositPayload) Validate() (err error) {
 	if ut.BusinessApplicationID != nil {
 		if utf8.RuneCountInString(*ut.BusinessApplicationID) < 2 {
 			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.businessApplicationId`, *ut.BusinessApplicationID, utf8.RuneCountInString(*ut.BusinessApplicationID), 2, true))
