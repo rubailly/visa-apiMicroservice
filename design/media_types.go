@@ -6,11 +6,11 @@ import (
 )
 
 // Output Type (MediaType). It defines types and views
-// DepositsMedia is the deposits resource media type.
+// DepositMedia is the deposits resource media type.
 
-var DepositsMedia = MediaType("application/vnd.DepositsMedia+json", func() {
-	TypeName("deposits")
-	Reference(DepositsPayload)
+var DepositMedia = MediaType("application/vnd.DepositMedia+json", func() {
+	TypeName("deposit")
+	Reference(DepositPayload)
 
 	Attributes(func() {
 		Attribute("ID")
@@ -54,7 +54,7 @@ var DepositsMedia = MediaType("application/vnd.DepositsMedia+json", func() {
 
 var WithdrawalMedia = MediaType("application/vnd.WithdrawalMedia+json", func() {
 	TypeName("withdrawal")
-	Reference(DepositsPayload)
+	Reference(WithdrawalPayload)
 
 	Attributes(func() {
 		Attribute("ID")
