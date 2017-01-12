@@ -49,3 +49,47 @@ var DepositsMedia = MediaType("application/vnd.DepositsMedia+json", func() {
 		Attribute("transactionIdentifier")
 	})
 })
+
+// WithdrawalMedia is the withdrawal resource media type.
+
+var WithdrawalMedia = MediaType("application/vnd.WithdrawalMedia+json", func() {
+	TypeName("withdrawal")
+	Reference(DepositsPayload)
+
+	Attributes(func() {
+		Attribute("ID")
+		Attribute("acquirerCountryCode")
+		Attribute("acquiringBin")
+		Attribute("amount")
+		Attribute("businessApplicationId")
+		Attribute("localTransactionDateTime")
+		Attribute("merchantCategoryCode")
+		Attribute("recipientPrimaryAccountNumber")
+		Attribute("retrievalReferenceNumber")
+		Attribute("senderAccountNumber")
+		Attribute("senderName")
+		Attribute("senderReference")
+		Attribute("systemsTraceAuditNumber")
+		Attribute("transactionCurrencyCode")
+		Attribute("transactionIdentifier")
+
+	})
+
+	View("default", func() {
+		Attribute("ID")
+		Attribute("acquirerCountryCode")
+		Attribute("acquiringBin")
+		Attribute("amount")
+		Attribute("businessApplicationId")
+		Attribute("localTransactionDateTime")
+		Attribute("merchantCategoryCode")
+		Attribute("recipientPrimaryAccountNumber")
+		Attribute("retrievalReferenceNumber")
+		Attribute("senderAccountNumber")
+		Attribute("senderName")
+		Attribute("senderReference")
+		Attribute("systemsTraceAuditNumber")
+		Attribute("transactionCurrencyCode")
+		Attribute("transactionIdentifier")
+	})
+})
