@@ -18,9 +18,12 @@ func main() {
 	service.Use(middleware.ErrorHandler(service, true))
 	service.Use(middleware.Recover())
 
-	// Mount "deposits" controller
-	c := NewDepositsController(service)
-	app.MountDepositsController(service, c)
+	// Mount "deposit" controller
+	c := NewDepositController(service)
+	app.MountDepositController(service, c)
+	// Mount "withdrawal" controller
+	c2 := NewWithdrawalController(service)
+	app.MountWithdrawalController(service, c2)
 
 	// Start service
 	if err := service.ListenAndServe(":8080"); err != nil {
