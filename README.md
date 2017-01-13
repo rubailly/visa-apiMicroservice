@@ -88,7 +88,7 @@ goagen generates  a tool by compiling the command specific code generation algor
 
 - Run the code  ```./ChamaconektVisa```
 
-### How to access the APIs via the command line tool.
+### How to access the APIs via the CLI(command line) tool.
 
 - Change into the directory with the CLI
 
@@ -106,7 +106,7 @@ goagen generates  a tool by compiling the command specific code generation algor
     create
     show
 
-### How to access the Swagger UI.
+### How to access the Swagger UI for API documentation.
 
 - Add the following code on ```resources.go```
 
