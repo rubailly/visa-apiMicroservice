@@ -109,10 +109,9 @@ goagen generates  a tool by compiling the command specific code generation algor
 
 - The content of the app package:
 
-This is where the bindings happen between the Go http server and the code.
+    This is where the bindings happen between the Go http server and the code.
 
-    - controllers.go 
-    Contains the controller interface type definitions. There is one such interface per resource defined in the design language. The file 
+    ```controllers.go ```  Contains the controller interface type definitions. There is one such interface per resource defined in the design language. The file 
     also contains the code that “mounts” implementations of these controller interfaces onto the service. The exact meaning of “mounting” 
     a controller is discussed further below.
 
