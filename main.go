@@ -24,9 +24,12 @@ func main() {
 	// Mount "payment" controller
 	c2 := NewPaymentController(service)
 	app.MountPaymentController(service, c2)
+	// Mount "swagger" controller
+	c3 := NewSwaggerController(service)
+	app.MountSwaggerController(service, c3)
 	// Mount "withdrawal" controller
-	c3 := NewWithdrawalController(service)
-	app.MountWithdrawalController(service, c3)
+	c4 := NewWithdrawalController(service)
+	app.MountWithdrawalController(service, c4)
 
 	// Start service
 	if err := service.ListenAndServe(":8080"); err != nil {
