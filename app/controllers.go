@@ -1,5 +1,5 @@
 //************************************************************************//
-// API "mVisa": Application Controllers
+// API "ChamaconektVisa": Application Controllers
 //
 // Generated with goagen v1.0.0, command line:
 // $ goagen
@@ -85,6 +85,70 @@ func MountDepositController(service *goa.Service, ctrl DepositController) {
 // unmarshalCreateDepositPayload unmarshals the request body into the context request data Payload field.
 func unmarshalCreateDepositPayload(ctx context.Context, service *goa.Service, req *http.Request) error {
 	payload := &depositPayload{}
+	if err := service.DecodeRequest(req, payload); err != nil {
+		return err
+	}
+	if err := payload.Validate(); err != nil {
+		// Initialize payload with private data structure so it can be logged
+		goa.ContextRequest(ctx).Payload = payload
+		return err
+	}
+	goa.ContextRequest(ctx).Payload = payload.Publicize()
+	return nil
+}
+
+// PaymentController is the controller interface for the Payment actions.
+type PaymentController interface {
+	goa.Muxer
+	Create(*CreatePaymentContext) error
+	Show(*ShowPaymentContext) error
+}
+
+// MountPaymentController "mounts" a Payment resource controller on the given service.
+func MountPaymentController(service *goa.Service, ctrl PaymentController) {
+	initService(service)
+	var h goa.Handler
+
+	h = func(ctx context.Context, rw http.ResponseWriter, req *http.Request) error {
+		// Check if there was an error loading the request
+		if err := goa.ContextError(ctx); err != nil {
+			return err
+		}
+		// Build the context
+		rctx, err := NewCreatePaymentContext(ctx, service)
+		if err != nil {
+			return err
+		}
+		// Build the payload
+		if rawPayload := goa.ContextRequest(ctx).Payload; rawPayload != nil {
+			rctx.Payload = rawPayload.(*PaymentPayload)
+		} else {
+			return goa.MissingPayloadError()
+		}
+		return ctrl.Create(rctx)
+	}
+	service.Mux.Handle("POST", "/payment", ctrl.MuxHandler("Create", h, unmarshalCreatePaymentPayload))
+	service.LogInfo("mount", "ctrl", "Payment", "action", "Create", "route", "POST /payment")
+
+	h = func(ctx context.Context, rw http.ResponseWriter, req *http.Request) error {
+		// Check if there was an error loading the request
+		if err := goa.ContextError(ctx); err != nil {
+			return err
+		}
+		// Build the context
+		rctx, err := NewShowPaymentContext(ctx, service)
+		if err != nil {
+			return err
+		}
+		return ctrl.Show(rctx)
+	}
+	service.Mux.Handle("GET", "/payment/:id", ctrl.MuxHandler("Show", h, nil))
+	service.LogInfo("mount", "ctrl", "Payment", "action", "Show", "route", "GET /payment/:id")
+}
+
+// unmarshalCreatePaymentPayload unmarshals the request body into the context request data Payload field.
+func unmarshalCreatePaymentPayload(ctx context.Context, service *goa.Service, req *http.Request) error {
+	payload := &paymentPayload{}
 	if err := service.DecodeRequest(req, payload); err != nil {
 		return err
 	}

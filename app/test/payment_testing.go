@@ -1,5 +1,5 @@
 //************************************************************************//
-// API "ChamaconektVisa": deposit TestHelpers
+// API "ChamaconektVisa": payment TestHelpers
 //
 // Generated with goagen v1.0.0, command line:
 // $ goagen
@@ -26,11 +26,11 @@ import (
 	"net/url"
 )
 
-// CreateDepositCreated runs the method Create of the given controller with the given parameters and payload.
+// CreatePaymentCreated runs the method Create of the given controller with the given parameters and payload.
 // It returns the response writer so it's possible to inspect the response headers.
 // If ctx is nil then context.Background() is used.
 // If service is nil then a default service is created.
-func CreateDepositCreated(t goatest.TInterface, ctx context.Context, service *goa.Service, ctrl app.DepositController, payload *app.DepositPayload) http.ResponseWriter {
+func CreatePaymentCreated(t goatest.TInterface, ctx context.Context, service *goa.Service, ctrl app.PaymentController, payload *app.PaymentPayload) http.ResponseWriter {
 	// Setup service
 	var (
 		logBuf bytes.Buffer
@@ -64,7 +64,7 @@ func CreateDepositCreated(t goatest.TInterface, ctx context.Context, service *go
 	// Setup request context
 	rw := httptest.NewRecorder()
 	u := &url.URL{
-		Path: fmt.Sprintf("/deposit"),
+		Path: fmt.Sprintf("/payment"),
 	}
 	req, err := http.NewRequest("POST", u.String(), nil)
 	if err != nil {
@@ -74,8 +74,8 @@ func CreateDepositCreated(t goatest.TInterface, ctx context.Context, service *go
 	if ctx == nil {
 		ctx = context.Background()
 	}
-	goaCtx := goa.NewContext(goa.WithAction(ctx, "DepositTest"), rw, req, prms)
-	createCtx, err := app.NewCreateDepositContext(goaCtx, service)
+	goaCtx := goa.NewContext(goa.WithAction(ctx, "PaymentTest"), rw, req, prms)
+	createCtx, err := app.NewCreatePaymentContext(goaCtx, service)
 	if err != nil {
 		panic("invalid test data " + err.Error()) // bug
 	}
@@ -96,11 +96,11 @@ func CreateDepositCreated(t goatest.TInterface, ctx context.Context, service *go
 	return rw
 }
 
-// ShowDepositOK runs the method Show of the given controller with the given parameters.
+// ShowPaymentOK runs the method Show of the given controller with the given parameters.
 // It returns the response writer so it's possible to inspect the response headers and the media type struct written to the response.
 // If ctx is nil then context.Background() is used.
 // If service is nil then a default service is created.
-func ShowDepositOK(t goatest.TInterface, ctx context.Context, service *goa.Service, ctrl app.DepositController, id int) (http.ResponseWriter, *app.Deposit) {
+func ShowPaymentOK(t goatest.TInterface, ctx context.Context, service *goa.Service, ctrl app.PaymentController, id int) (http.ResponseWriter, *app.Payment) {
 	// Setup service
 	var (
 		logBuf bytes.Buffer
@@ -121,7 +121,7 @@ func ShowDepositOK(t goatest.TInterface, ctx context.Context, service *goa.Servi
 	// Setup request context
 	rw := httptest.NewRecorder()
 	u := &url.URL{
-		Path: fmt.Sprintf("/deposit/%v", id),
+		Path: fmt.Sprintf("/payment/%v", id),
 	}
 	req, err := http.NewRequest("GET", u.String(), nil)
 	if err != nil {
@@ -132,8 +132,8 @@ func ShowDepositOK(t goatest.TInterface, ctx context.Context, service *goa.Servi
 	if ctx == nil {
 		ctx = context.Background()
 	}
-	goaCtx := goa.NewContext(goa.WithAction(ctx, "DepositTest"), rw, req, prms)
-	showCtx, err := app.NewShowDepositContext(goaCtx, service)
+	goaCtx := goa.NewContext(goa.WithAction(ctx, "PaymentTest"), rw, req, prms)
+	showCtx, err := app.NewShowPaymentContext(goaCtx, service)
 	if err != nil {
 		panic("invalid test data " + err.Error()) // bug
 	}
@@ -148,12 +148,12 @@ func ShowDepositOK(t goatest.TInterface, ctx context.Context, service *goa.Servi
 	if rw.Code != 200 {
 		t.Errorf("invalid response status code: got %+v, expected 200", rw.Code)
 	}
-	var mt *app.Deposit
+	var mt *app.Payment
 	if resp != nil {
 		var ok bool
-		mt, ok = resp.(*app.Deposit)
+		mt, ok = resp.(*app.Payment)
 		if !ok {
-			t.Fatalf("invalid response media: got %+v, expected instance of app.Deposit", resp)
+			t.Fatalf("invalid response media: got %+v, expected instance of app.Payment", resp)
 		}
 		err = mt.Validate()
 		if err != nil {

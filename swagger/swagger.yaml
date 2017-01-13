@@ -11,7 +11,7 @@ definitions:
       acquiringBin: 400171
       amount: 12400
       businessApplicationId: CI
-      localTransactionDateTime: 1984-10-06T15:03:29+03:00
+      localTransactionDateTime: 1991-06-20T22:59:21+03:00
       merchantCategoryCode: 4829
       recipientPrimaryAccountNumber: "4123640062698797"
       retrievalReferenceNumber: "430000367618"
@@ -20,6 +20,7 @@ definitions:
       senderReference: "1234"
       systemsTraceAuditNumber: 313042
       transactionCurrencyCode: USD
+      transactionIdentifier: 4.5564375e+18
     properties:
       acquirerCountryCode:
         description: Country of the originator BIN.
@@ -45,7 +46,7 @@ definitions:
         type: string
       localTransactionDateTime:
         description: 'The date and time the transaction takes place, '
-        example: 1984-10-06T15:03:29+03:00
+        example: 1991-06-20T22:59:21+03:00
         format: date-time
         type: string
       merchantCategoryCode:
@@ -90,7 +91,119 @@ definitions:
         maxLength: 3
         minLength: 3
         type: string
+      transactionIdentifier:
+        description: VisaNet reference Number for the transaction
+        example: 4.5564375e+18
+        format: int64
+        type: integer
     title: DepositPayload
+    type: object
+  PaymentPayload:
+    description: PaymentPayload is the type used to create a payment.
+    example:
+      acquirerCountryCode: 643
+      acquiringBin: 400171
+      amount: 12400
+      businessApplicationId: CI
+      feeProgramIndicator: vcz
+      localTransactionDateTime: 2012-06-10T09:26:41+03:00
+      recipientName: 9ofag6d8v6
+      recipientPrimaryAccountNumber: "4123640062698797"
+      retrievalReferenceNumber: "430000367618"
+      secondaryId: td0r9exk8o
+      senderAccountNumber: "4541237895236"
+      senderName: Mohammed Qasim
+      senderReference: "1234"
+      systemsTraceAuditNumber: 313042
+      transactionCurrencyCode: USD
+      transactionIdentifier: 3.275656e+18
+    properties:
+      acquirerCountryCode:
+        description: Country of the originator BIN.
+        example: 643
+        format: int64
+        type: integer
+      acquiringBin:
+        description: BIN number identifies the originator of cash in transaction.
+        example: 400171
+        format: int64
+        type: integer
+      amount:
+        description: Transaction amount in agent currency
+        example: 12400
+        format: int64
+        type: integer
+      businessApplicationId:
+        description: This field is populated with business application identifier
+          for the transaction.
+        example: CI
+        maxLength: 2
+        minLength: 2
+        type: string
+      feeProgramIndicator:
+        description: Optional field populated by recipient
+        example: vcz
+        maxLength: 3
+        minLength: 3
+        type: string
+      localTransactionDateTime:
+        description: 'The date and time the transaction takes place, '
+        example: 2012-06-10T09:26:41+03:00
+        format: date-time
+        type: string
+      recipientName:
+        description: Recipients Name
+        example: 9ofag6d8v6
+        maxLength: 30
+        type: string
+      recipientPrimaryAccountNumber:
+        description: Consumer PAN.16-digit PAN as provided by the consumer to agent.
+        example: "4123640062698797"
+        maxLength: 19
+        minLength: 13
+        type: string
+      retrievalReferenceNumber:
+        description: Matches message to others within a given transaction
+        example: "430000367618"
+        maxLength: 12
+        minLength: 12
+        type: string
+      secondaryId:
+        description: Obtains additional data along with the payment instruction
+        example: td0r9exk8o
+        maxLength: 28
+        type: string
+      senderAccountNumber:
+        description: mVisa cash-in transactions
+        example: "4541237895236"
+        type: string
+      senderName:
+        description: Name of agents business name
+        example: Mohammed Qasim
+        maxLength: 30
+        type: string
+      senderReference:
+        description: A reference number unique to the agent
+        example: "1234"
+        maxLength: 16
+        type: string
+      systemsTraceAuditNumber:
+        description: Key data element
+        example: 313042
+        format: int64
+        type: integer
+      transactionCurrencyCode:
+        description: Currency code
+        example: USD
+        maxLength: 3
+        minLength: 3
+        type: string
+      transactionIdentifier:
+        description: VisaNet reference Number for the transaction
+        example: 3.275656e+18
+        format: int64
+        type: integer
+    title: PaymentPayload
     type: object
   WithdrawalPayload:
     description: WithdrawalPayload is the type used to create a withdrawal.
@@ -99,7 +212,7 @@ definitions:
       acquiringBin: 400171
       amount: 12400
       businessApplicationId: CI
-      localTransactionDateTime: 2013-08-16T20:25:03+03:00
+      localTransactionDateTime: 2008-03-21T11:02:38+03:00
       merchantCategoryCode: 4829
       recipientPrimaryAccountNumber: "4123640062698797"
       retrievalReferenceNumber: "430000367618"
@@ -108,6 +221,7 @@ definitions:
       senderReference: "1234"
       systemsTraceAuditNumber: 313042
       transactionCurrencyCode: USD
+      transactionIdentifier: 5.389975e+18
     properties:
       acquirerCountryCode:
         description: Country of the originator BIN.
@@ -133,7 +247,7 @@ definitions:
         type: string
       localTransactionDateTime:
         description: 'The date and time the transaction takes place, '
-        example: 2013-08-16T20:25:03+03:00
+        example: 2008-03-21T11:02:38+03:00
         format: date-time
         type: string
       merchantCategoryCode:
@@ -178,17 +292,21 @@ definitions:
         maxLength: 3
         minLength: 3
         type: string
+      transactionIdentifier:
+        description: VisaNet reference Number for the transaction
+        example: 5.389975e+18
+        format: int64
+        type: integer
     title: WithdrawalPayload
     type: object
   application/vnd.depositmedia:
     description: deposit media type (default view)
     example:
-      ID: Nostrum ut in nihil quis minima impedit.
       acquirerCountryCode: 643
       acquiringBin: 400171
       amount: 12400
       businessApplicationId: CI
-      localTransactionDateTime: 1984-10-31T05:16:46+03:00
+      localTransactionDateTime: 2007-03-16T23:55:08+03:00
       merchantCategoryCode: 4829
       recipientPrimaryAccountNumber: "4123640062698797"
       retrievalReferenceNumber: "430000367618"
@@ -197,11 +315,8 @@ definitions:
       senderReference: "1234"
       systemsTraceAuditNumber: 313042
       transactionCurrencyCode: USD
-      transactionIdentifier: Earum eius quia.
+      transactionIdentifier: 7.6267576e+17
     properties:
-      ID:
-        example: Nostrum ut in nihil quis minima impedit.
-        type: string
       acquirerCountryCode:
         description: Country of the originator BIN.
         example: 643
@@ -226,7 +341,7 @@ definitions:
         type: string
       localTransactionDateTime:
         description: 'The date and time the transaction takes place, '
-        example: 1984-10-31T05:16:46+03:00
+        example: 2007-03-16T23:55:08+03:00
         format: date-time
         type: string
       merchantCategoryCode:
@@ -272,19 +387,131 @@ definitions:
         minLength: 3
         type: string
       transactionIdentifier:
-        example: Earum eius quia.
-        type: string
+        description: VisaNet reference Number for the transaction
+        example: 7.6267576e+17
+        format: int64
+        type: integer
     title: 'Mediatype identifier: application/vnd.depositmedia+json'
+    type: object
+  application/vnd.paymentmedia:
+    description: payment media type (default view)
+    example:
+      acquirerCountryCode: 643
+      acquiringBin: 400171
+      amount: 12400
+      businessApplicationId: CI
+      feeProgramIndicator: su8
+      localTransactionDateTime: 1994-05-10T11:28:51+03:00
+      merchantCategoryCode: Quas animi ratione recusandae optio mollitia doloremque.
+      recipientName: ezhbq8cuqh
+      recipientPrimaryAccountNumber: "4123640062698797"
+      retrievalReferenceNumber: "430000367618"
+      secondaryId: z426yfqoe8
+      senderAccountNumber: "4541237895236"
+      senderName: Mohammed Qasim
+      senderReference: "1234"
+      systemsTraceAuditNumber: 313042
+      transactionCurrencyCode: USD
+      transactionIdentifier: 5.7035384e+18
+    properties:
+      acquirerCountryCode:
+        description: Country of the originator BIN.
+        example: 643
+        format: int64
+        type: integer
+      acquiringBin:
+        description: BIN number identifies the originator of cash in transaction.
+        example: 400171
+        format: int64
+        type: integer
+      amount:
+        description: Transaction amount in agent currency
+        example: 12400
+        format: int64
+        type: integer
+      businessApplicationId:
+        description: This field is populated with business application identifier
+          for the transaction.
+        example: CI
+        maxLength: 2
+        minLength: 2
+        type: string
+      feeProgramIndicator:
+        description: Optional field populated by recipient
+        example: su8
+        maxLength: 3
+        minLength: 3
+        type: string
+      localTransactionDateTime:
+        description: 'The date and time the transaction takes place, '
+        example: 1994-05-10T11:28:51+03:00
+        format: date-time
+        type: string
+      merchantCategoryCode:
+        example: Quas animi ratione recusandae optio mollitia doloremque.
+        type: string
+      recipientName:
+        description: Recipients Name
+        example: ezhbq8cuqh
+        maxLength: 30
+        type: string
+      recipientPrimaryAccountNumber:
+        description: Consumer PAN.16-digit PAN as provided by the consumer to agent.
+        example: "4123640062698797"
+        maxLength: 19
+        minLength: 13
+        type: string
+      retrievalReferenceNumber:
+        description: Matches message to others within a given transaction
+        example: "430000367618"
+        maxLength: 12
+        minLength: 12
+        type: string
+      secondaryId:
+        description: Obtains additional data along with the payment instruction
+        example: z426yfqoe8
+        maxLength: 28
+        type: string
+      senderAccountNumber:
+        description: mVisa cash-in transactions
+        example: "4541237895236"
+        type: string
+      senderName:
+        description: Name of agents business name
+        example: Mohammed Qasim
+        maxLength: 30
+        type: string
+      senderReference:
+        description: A reference number unique to the agent
+        example: "1234"
+        maxLength: 16
+        type: string
+      systemsTraceAuditNumber:
+        description: Key data element
+        example: 313042
+        format: int64
+        type: integer
+      transactionCurrencyCode:
+        description: Currency code
+        example: USD
+        maxLength: 3
+        minLength: 3
+        type: string
+      transactionIdentifier:
+        description: VisaNet reference Number for the transaction
+        example: 5.7035384e+18
+        format: int64
+        type: integer
+    title: 'Mediatype identifier: application/vnd.paymentmedia+json'
     type: object
   application/vnd.withdrawalmedia:
     description: withdrawal media type (default view)
     example:
-      ID: Praesentium non ratione sint molestias similique qui.
       acquirerCountryCode: 643
       acquiringBin: 400171
       amount: 12400
       businessApplicationId: CI
-      localTransactionDateTime: 1984-01-02T16:41:00+03:00
+      localTransactionDateTime: 1977-01-16T01:48:08+03:00
       merchantCategoryCode: 4829
       recipientPrimaryAccountNumber: "4123640062698797"
       retrievalReferenceNumber: "430000367618"
@@ -293,11 +520,8 @@ definitions:
       senderReference: "1234"
       systemsTraceAuditNumber: 313042
       transactionCurrencyCode: USD
-      transactionIdentifier: Ipsam aperiam et sit laborum illum et.
+      transactionIdentifier: 5.4173856e+18
     properties:
-      ID:
-        example: Praesentium non ratione sint molestias similique qui.
-        type: string
       acquirerCountryCode:
         description: Country of the originator BIN.
         example: 643
@@ -322,7 +546,7 @@ definitions:
         type: string
       localTransactionDateTime:
         description: 'The date and time the transaction takes place, '
-        example: 1984-01-02T16:41:00+03:00
+        example: 1977-01-16T01:48:08+03:00
         format: date-time
         type: string
       merchantCategoryCode:
@@ -368,8 +592,10 @@ definitions:
         minLength: 3
         type: string
       transactionIdentifier:
-        example: Ipsam aperiam et sit laborum illum et.
-        type: string
+        description: VisaNet reference Number for the transaction
+        example: 5.4173856e+18
+        format: int64
+        type: integer
     title: 'Mediatype identifier: application/vnd.withdrawalmedia+json'
     type: object
 host: localhost:8080
@@ -421,6 +647,44 @@ paths:
       summary: show deposit
       tags:
       - deposit
+  /payment:
+    post:
+      description: creates a payment
+      operationId: payment#create
+      parameters:
+      - description: PaymentPayload is the type used to create a payment.
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/PaymentPayload'
+      responses:
+        "201":
+          description: Created
+      schemes:
+      - http
+      summary: create payment
+      tags:
+      - payment
+  /payment/{id}:
+    get:
+      description: shows a payment
+      operationId: payment#show
+      parameters:
+      - in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/payment'
+      schemes:
+      - http
+      summary: show payment
+      tags:
+      - payment
   /withdrawal:
     post:
       description: creates a withdrawal

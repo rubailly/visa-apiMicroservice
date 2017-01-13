@@ -1,5 +1,5 @@
 //************************************************************************//
-// API "mVisa": Application Resource Href Factories
+// API "ChamaconektVisa": Application Resource Href Factories
 //
 // Generated with goagen v1.0.0, command line:
 // $ goagen
@@ -21,6 +21,12 @@ import (
 func DepositHref(id interface{}) string {
 	paramid := strings.TrimLeftFunc(fmt.Sprintf("%v", id), func(r rune) bool { return r == '/' })
 	return fmt.Sprintf("/deposit/%v", paramid)
+}
+
+// PaymentHref returns the resource href.
+func PaymentHref(id interface{}) string {
+	paramid := strings.TrimLeftFunc(fmt.Sprintf("%v", id), func(r rune) bool { return r == '/' })
+	return fmt.Sprintf("/payment/%v", paramid)
 }
 
 // WithdrawalHref returns the resource href.

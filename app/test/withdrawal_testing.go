@@ -1,5 +1,5 @@
 //************************************************************************//
-// API "mVisa": withdrawal TestHelpers
+// API "ChamaconektVisa": withdrawal TestHelpers
 //
 // Generated with goagen v1.0.0, command line:
 // $ goagen

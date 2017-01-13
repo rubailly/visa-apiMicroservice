@@ -5,7 +5,7 @@ import (
 	goaclient "github.com/goadesign/goa/client"
 )
 
-// Client is the mVisa service client.
+// Client is the ChamaconektVisa service client.
 type Client struct {
 	*goaclient.Client
 	Encoder *goa.HTTPEncoder

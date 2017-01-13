@@ -10,7 +10,7 @@ import (
 
 func main() {
 	// Create service
-	service := goa.New("mVisa")
+	service := goa.New("ChamaconektVisa")
 
 	// Mount middleware
 	service.Use(middleware.RequestID())
@@ -21,9 +21,12 @@ func main() {
 	// Mount "deposit" controller
 	c := NewDepositController(service)
 	app.MountDepositController(service, c)
+	// Mount "payment" controller
+	c2 := NewPaymentController(service)
+	app.MountPaymentController(service, c2)
 	// Mount "withdrawal" controller
-	c2 := NewWithdrawalController(service)
-	app.MountWithdrawalController(service, c2)
+	c3 := NewWithdrawalController(service)
+	app.MountWithdrawalController(service, c3)
 
 	// Start service
 	if err := service.ListenAndServe(":8080"); err != nil {

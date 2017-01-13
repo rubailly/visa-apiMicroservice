@@ -1,5 +1,5 @@
 //************************************************************************//
-// API "mVisa": Application Contexts
+// API "ChamaconektVisa": Application Contexts
 //
 // Generated with goagen v1.0.0, command line:
 // $ goagen
@@ -74,6 +74,65 @@ func NewShowDepositContext(ctx context.Context, service *goa.Service) (*ShowDepo
 // OK sends a HTTP response with status code 200.
 func (ctx *ShowDepositContext) OK(r *Deposit) error {
 	ctx.ResponseData.Header().Set("Content-Type", "application/vnd.depositmedia+json")
+	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
+}
+
+// CreatePaymentContext provides the payment create action context.
+type CreatePaymentContext struct {
+	context.Context
+	*goa.ResponseData
+	*goa.RequestData
+	Payload *PaymentPayload
+}
+
+// NewCreatePaymentContext parses the incoming request URL and body, performs validations and creates the
+// context used by the payment controller create action.
+func NewCreatePaymentContext(ctx context.Context, service *goa.Service) (*CreatePaymentContext, error) {
+	var err error
+	resp := goa.ContextResponse(ctx)
+	resp.Service = service
+	req := goa.ContextRequest(ctx)
+	rctx := CreatePaymentContext{Context: ctx, ResponseData: resp, RequestData: req}
+	return &rctx, err
+}
+
+// Created sends a HTTP response with status code 201.
+func (ctx *CreatePaymentContext) Created() error {
+	ctx.ResponseData.WriteHeader(201)
+	return nil
+}
+
+// ShowPaymentContext provides the payment show action context.
+type ShowPaymentContext struct {
+	context.Context
+	*goa.ResponseData
+	*goa.RequestData
+	ID int
+}
+
+// NewShowPaymentContext parses the incoming request URL and body, performs validations and creates the
+// context used by the payment controller show action.
+func NewShowPaymentContext(ctx context.Context, service *goa.Service) (*ShowPaymentContext, error) {
+	var err error
+	resp := goa.ContextResponse(ctx)
+	resp.Service = service
+	req := goa.ContextRequest(ctx)
+	rctx := ShowPaymentContext{Context: ctx, ResponseData: resp, RequestData: req}
+	paramID := req.Params["id"]
+	if len(paramID) > 0 {
+		rawID := paramID[0]
+		if id, err2 := strconv.Atoi(rawID); err2 == nil {
+			rctx.ID = id
+		} else {
+			err = goa.MergeErrors(err, goa.InvalidParamTypeError("id", rawID, "integer"))
+		}
+	}
+	return &rctx, err
+}
+
+// OK sends a HTTP response with status code 200.
+func (ctx *ShowPaymentContext) OK(r *Payment) error {
+	ctx.ResponseData.Header().Set("Content-Type", "application/vnd.paymentmedia+json")
 	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
 }
 
