@@ -161,6 +161,30 @@ func unmarshalCreatePaymentPayload(ctx context.Context, service *goa.Service, re
 	return nil
 }
 
+// SwaggerController is the controller interface for the Swagger actions.
+type SwaggerController interface {
+	goa.Muxer
+	goa.FileServer
+}
+
+// MountSwaggerController "mounts" a Swagger resource controller on the given service.
+func MountSwaggerController(service *goa.Service, ctrl SwaggerController) {
+	initService(service)
+	var h goa.Handler
+
+	h = ctrl.FileHandler("/swagger-ui/*filepath", "swagger-ui/")
+	service.Mux.Handle("GET", "/swagger-ui/*filepath", ctrl.MuxHandler("serve", h, nil))
+	service.LogInfo("mount", "ctrl", "Swagger", "files", "swagger-ui/", "route", "GET /swagger-ui/*filepath")
+
+	h = ctrl.FileHandler("/swagger.json", "swagger/swagger.json")
+	service.Mux.Handle("GET", "/swagger.json", ctrl.MuxHandler("serve", h, nil))
+	service.LogInfo("mount", "ctrl", "Swagger", "files", "swagger/swagger.json", "route", "GET /swagger.json")
+
+	h = ctrl.FileHandler("/swagger-ui/", "swagger-ui/index.html")
+	service.Mux.Handle("GET", "/swagger-ui/", ctrl.MuxHandler("serve", h, nil))
+	service.LogInfo("mount", "ctrl", "Swagger", "files", "swagger-ui/index.html", "route", "GET /swagger-ui/")
+}
+
 // WithdrawalController is the controller interface for the Withdrawal actions.
 type WithdrawalController interface {
 	goa.Muxer
