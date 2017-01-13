@@ -82,13 +82,13 @@ goagen generates  a tool by compiling the command specific code generation algor
 
 ## Implementation
 
-- Generating the bootstrap code using goagen  ```goagen bootstrap -d ChamaconektVisa/design```
+- Generate the bootstrap code using goagen  ```goagen bootstrap -d ChamaconektVisa/design```
 
-- Building the code  ```go build```
+- Build the code generated from the design  ```go build```
 
-- Running the code  ```./ChamaconektVisa```
+- Run the code  ```./ChamaconektVisa```
 
-- Accessing the API via the command line tool.
+- Access the APIs via the command line tool.
 
     - Change into the directory with the CLI
 
@@ -109,7 +109,7 @@ goagen generates  a tool by compiling the command specific code generation algor
 
 - The content of the app package:
 
-    This is where the bindings happen between the Go http server and the code.
+    In the app packages is where the bindings happen between the Go http server and the code.
 
     - ```controllers.go ```  Contains the controller interface type definitions. There is one such interface per resource defined in the design language. The file 
     also contains the code that “mounts” implementations of these controller interfaces onto the service. The exact meaning of “mounting” 
