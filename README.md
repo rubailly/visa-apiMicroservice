@@ -92,7 +92,7 @@ goagen generates  a tool by compiling the command specific code generation algor
 
     - Change into the directory with the CLI
 
-    ```cd ChamaconektVisa/tool/mvisa-cli ```
+    ```cd ChamaconektVisa/tool/chamaconektvisa-cli ```
 
     - Build the code
 
@@ -100,11 +100,23 @@ goagen generates  a tool by compiling the command specific code generation algor
 
     - Call the code
 
-    ``` ./mvisa-cli ```
+    ``` ./chamaconektvisa-cli ```
 
 - Available commands on the CLI
  create
  show
+
+### How to access the Swagger UI.
+
+- Copy the Swagger UI folder into the swagger folder in the repository    
+
+- Rebuild the code
+
+``` go build ``` 
+
+- Relaunch the code
+
+``` ./chamaconektvisa ```
 
 
 - The content of the app package:
