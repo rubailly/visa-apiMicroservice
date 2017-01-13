@@ -67,3 +67,10 @@ var _ = Resource("payment", func() {
 		Response(OK, PaymentMedia)
 	})
 })
+
+var _ = Resource("swagger", func() {
+	Description("The API Swagger specification")
+
+	Files("/swagger.json", "swagger/swagger.json")
+	Files("/swagger-ui/*filepath", "swagger-ui/")
+})
