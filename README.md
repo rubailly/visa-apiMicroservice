@@ -82,24 +82,17 @@ goagen generates  a tool by compiling the command specific code generation algor
 
 ## Implementation
 
-- Generating the bootstrap code using goagen 
+- Generating the bootstrap code using goagen  ```goagen bootstrap -d ChamaconektVisa/design```
 
-```goagen bootstrap -d ChamaconektVisa/design```
+- Building the code  ```go build```
 
-
-- Building the code 
-
-```go build```
-
-- Running the code 
-
-```./ChamaconektVisa```
+- Running the code  ```./ChamaconektVisa```
 
 - Accessing the API via the command line tool.
 
     - Change into the directory with the CLI
 
-    ``` cd ChamaconektVisa/tool/mvisa-cli ```
+    ```cd ChamaconektVisa/tool/mvisa-cli ```
 
     - Build the code
 
