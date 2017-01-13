@@ -88,19 +88,19 @@ goagen generates  a tool by compiling the command specific code generation algor
 
 - Run the code  ```./ChamaconektVisa```
 
-- Access the APIs via the command line tool.
+## How to access the APIs via the command line tool.
 
-    - Change into the directory with the CLI
+- Change into the directory with the CLI
 
-    ```cd ChamaconektVisa/tool/chamaconektvisa-cli ```
+```cd ChamaconektVisa/tool/chamaconektvisa-cli ```
 
-    - Build the code
+- Build the code
 
-    ``` go build ``` 
+``` go build ``` 
 
-    - Call the code
+- Call the code
 
-    ``` ./chamaconektvisa-cli ```
+``` ./chamaconektvisa-cli ```
 
 - Available commands on the CLI
  create
@@ -108,7 +108,20 @@ goagen generates  a tool by compiling the command specific code generation algor
 
 ### How to access the Swagger UI.
 
-- Copy the Swagger UI folder into the swagger folder in the repository    
+- Add the following code on ```resources.go```
+
+```js
+var _ = Resource("swagger", func() {
+	Description("The API Swagger specification")
+
+	Files("/swagger.json", "swagger/swagger.json")
+	Files("/swagger-ui/*filepath", "swagger-ui/")
+})
+```
+
+- Clone the swagger-ui from [GitHub](https://github.com/swagger-api/swagger-ui) in your home directory
+
+- Copy the Swagger UI folder that you cloned above into the project repository    
 
 - Rebuild the code
 
