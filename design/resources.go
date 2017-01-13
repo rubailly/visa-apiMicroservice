@@ -46,3 +46,24 @@ var _ = Resource("withdrawal", func() {
 		Response(OK, WithdrawalMedia)
 	})
 })
+
+var _ = Resource("payment", func() {
+	Description("Payment to a merchant for goods or services purchased")
+	BasePath("/payment")
+
+	Action("create", func() {
+		Description("creates a payment")
+		Routing(POST("/"))
+		Payload(PaymentPayload)
+		Response(Created)
+	})
+
+	Action("show", func() {
+		Description("shows a payment")
+		Routing(GET("/:id"))
+		Params(func() {
+			Param("id", Integer)
+		})
+		Response(OK, PaymentMedia)
+	})
+})
