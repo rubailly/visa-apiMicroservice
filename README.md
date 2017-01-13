@@ -88,23 +88,23 @@ goagen generates  a tool by compiling the command specific code generation algor
 
 - Run the code  ```./ChamaconektVisa```
 
-## How to access the APIs via the command line tool.
+### How to access the APIs via the command line tool.
 
 - Change into the directory with the CLI
 
-```cd ChamaconektVisa/tool/chamaconektvisa-cli ```
+    ```cd ChamaconektVisa/tool/chamaconektvisa-cli ```
 
 - Build the code
 
-``` go build ``` 
+    ``` go build ``` 
 
 - Call the code
 
-``` ./chamaconektvisa-cli ```
+    ``` ./chamaconektvisa-cli ```
 
 - Available commands on the CLI
- create
- show
+    create
+    show
 
 ### How to access the Swagger UI.
 
@@ -125,11 +125,11 @@ var _ = Resource("swagger", func() {
 
 - Rebuild the code
 
-``` go build ``` 
+    ``` go build ``` 
 
 - Relaunch the code
 
-``` ./chamaconektvisa ```
+    ``` ./chamaconektvisa ```
 
 
 - The content of the app package:
