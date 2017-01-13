@@ -82,73 +82,74 @@ goagen generates  a tool by compiling the command specific code generation algor
 
 ## Implementation
 
-1. Generating the bootstrap code using goagen 
+- Generating the bootstrap code using goagen 
 
 ```goagen bootstrap -d ChamaconektVisa/design```
 
 
-2. Building the code 
+- Building the code 
 
 ```go build```
 
-3. Running the code 
+- Running the code 
 
 ```./ChamaconektVisa```
 
-4. Accessing the API via the command line tool.
+- Accessing the API via the command line tool.
 
-- Change into the directory with the CLI
+    - Change into the directory with the CLI
 
-``` cd ChamaconektVisa/tool/mvisa-cli ```
+    ``` cd ChamaconektVisa/tool/mvisa-cli ```
 
-- Build the code
+    - Build the code
 
-``` go build ``` 
+    ``` go build ``` 
 
-- Call the code
+    - Call the code
 
-``` ./mvisa-cli ```
+    ``` ./mvisa-cli ```
 
 - Available commands on the CLI
  create
  show
 
 
-5. The content of the app package:
+- The content of the app package:
+
 This is where the bindings happen between the Go http server and the code.
 
-- controllers.go 
-Contains the controller interface type definitions. There is one such interface per resource defined in the design language. The file 
-also contains the code that “mounts” implementations of these controller interfaces onto the service. The exact meaning of “mounting” 
-a controller is discussed further below.
+    - controllers.go 
+    Contains the controller interface type definitions. There is one such interface per resource defined in the design language. The file 
+    also contains the code that “mounts” implementations of these controller interfaces onto the service. The exact meaning of “mounting” 
+    a controller is discussed further below.
 
-- contexts.go
-Contains the context data structure definitions. Contexts play a similar role to Martini’s ```martini.Context```, goji’s ```web.C``` 
-or echo’s ```echo.Context``` to take a few arbitrary examples: they are given as first argument to all controller actions and provide 
-helper methods to access the request state and write the response.
+    - contexts.go
+    Contains the context data structure definitions. Contexts play a similar role to Martini’s ```martini.Context```, goji’s ```web.C``` 
+    or echo’s ```echo.Context``` to take a few arbitrary examples: they are given as first argument to all controller actions and provide 
+    helper methods to access the request state and write the response.
 
-- hrefs.go
-Provide global functions for building resource hrefs. Resource hrefs make it possible for responses to link to related resources. goa 
-knows how to build these hrefs by looking at the request path for the resource “canonical” action (by default the ```show``` action). 
+    - hrefs.go
+    Provide global functions for building resource hrefs. Resource hrefs make it possible for responses to link to related resources. goa 
+    knows how to build these hrefs by looking at the request path for the resource “canonical” action (by default the ```show``` action). 
 
-- media_types.go
-Contains the media type data structures used by resource actions to build the responses. There is one such data structure generated per 
-view defined in the design.
+    - media_types.go
+    Contains the media type data structures used by resource actions to build the responses. There is one such data structure generated per 
+    view defined in the design.
 
-- user_types.go
-Contains the data structures defined via the Type design language function. Such types may be used to define request payloads and 
-response media types.
+    - user_types.go
+    Contains the data structures defined via the Type design language function. Such types may be used to define request payloads and 
+    response media types.
 
-- test/
-contains test helpers that make it convenient to test the controller code by making it possible to call the action implementations with 
-controller input and validate the resulting media types.
+    - test/
+    contains test helpers that make it convenient to test the controller code by making it possible to call the action implementations with 
+    controller input and validate the resulting media types.
 
 - main.go
 This is code that is only generated once.It is not going to overwrite it if it is already there.
 
 
 
-### Running locally
+## Running locally
 
 Assuming a working Go setup:
 
