@@ -1,6 +1,4 @@
 
-# Chamaconekt Payment Microservice  
-
 ![Introduction to Visa Direct](/vd_overview.jpg)
 
 The innovation race is on in the financial services industry globally and it has manifested itself through the proliferation of Open API 
