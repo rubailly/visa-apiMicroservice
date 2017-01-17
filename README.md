@@ -1,115 +1,11 @@
-# Overview
+
+# Chamaconekt Visa 
 
 The innovation race is on in the financial services industry globally and it has manifested itself through the proliferation of Open API 
-portals.
-
-Networks, processors and banks are launching developer portals and inviting all developers to explore their Open APIs to build 
+portals.Networks, processors and banks are launching developer portals and inviting all developers to explore their Open APIs to build 
 their own rendition of the next killer application.
 
-The expectations of a modern consumer have changed dramatically over the last few years, and consumers are asking for services
-hat are more personalized, faster, cheaper, and more easily accessible. The queues at the retail bank branches are getting smaller, and 
-the younger consumers wouldn’t even comprehend a bank that doesn’t have an app. As such, it is no longer enough to offer an app with basic 
-account-based services (look up my balance, view my transactions, deposit my checks, etc.), the app competition has moved on to more 
-innovative features.
-
-## Examples
-
-
-__1.Capital One Bank__
-
-The U.S. bank Capital One launched in 2016 a developer portal and new open APIs in a move that signaled a significant shift in open 
-banking platforms.
-
-The new developer portal provides a single point of reference for the bank’s engagement with developers, listing their open APIs. The 
-portal contains all the features that are now considered best practice for developer engagement including self-serve registration and 
-instant API access, sandbox testing environments, documentation, code snippets, and reference applications with sample code.
-
-The developer portal gives developers what they are looking for: easy-to-integrate APIs, a robust testing environment, great documentation
-that is comprehensive and simple, and sample code and reference applications.
-
-Capital One is one of the first banks going after developers as a new audience. The portal will also become the home base for Capital 
-One’s open source projects. Capital One’s foray into open source demonstrates both the company’s own internal reliance on APIs, and 
-their willingness to share dev tools with the community. Last year, the company released
-
-[![capitalone](/capitalone.png)](https://developer.capitalone.com/)
-
-__2.Mondo__
-
-At Monzo they are building a new kind of bank, built for your smartphone. The company, founded in early 2015, now has over 60 employees. 
-In August 2016 Monzo officially became a regulated bank and will be launching current accounts in a matter of months.
-
-Over 60,000 people in the UK are using the Monzo app as part of our Beta, on iOS or on Android, with hundreds more joining every day.
-
-[![mondo](/mondo.png)](https://monzo.com/)
-
-__3.Visa__
-
-Visa’s global network just got a whole lot more open for the developer community.
-
-Visa announced in 2016 the launch of Visa Developer, which will enable software application developers to have open access to Visa’s 
-payments technology, products and service. What this means is that, for the first time in Visa’s near 60 years of existence, it is 
-now ensuring its retail payments network is an open platform to be a source that Visa believes will “drive innovation in payments in 
-commerce.”
-
-The goal of the new developer platform is to assist financial institutions, merchants, and technology companies with meeting the 
-demands of consumers and merchants who are increasingly relying on devices to not only shop, but pay and get paid.
-
-The rollout of the new platform will give the software developer community access to Visa’s payments technology, which includes services 
-like: account holder identification, person-to-person payment capabilities, secure in-store and online payments services 
-like Visa Checkout, currency conversion and consumer transaction alerts. More payment capabilities will be added during the year, 
-according to Visa.
-
-The Visa Developer Platform has been a multi-year initiative under the umbrella of Visa’s global product and technology teams. That 
-team has been leading the charge to transform Visa’s payment products and services into APIs for developers to use.
-
-[![visa](/visa.png)](https://developer.visa.com/)
-
-__4.Matercard__
-
-At the beginning of 2016, the mission for Mastercard was to “move beyond the payment.” The idea was to continue the mission of enabling 
-commerce for every device while at the same time build new ways for companies to build relationships and engagement with customers.
-
-This mission of enable and extend is taking a significant step forward from an implementation level. Mastercard announced that it has 
-redeveloped and re-launched its developer platform to make it much easier for developers to integrate Mastercard APIs to handle all kinds 
-of payments integration, customer intelligence, new device types and even financial inclusion.
-
-The Mastercard Developers platform will includes application programming interfaces—some new, some old—and introduces several new 
-features to make it easier to build with Mastercard technology.
-
-[![mastercard](/mastercard.png)](https://developer.mastercard.com/)
-
-
-
-As Chamaconekt, we are leveraging on such open APIs with payment systems like [Visa Inc.](https://developer.visa.com/) to help us build 
-the next generation of products and services for the financial services industry because of the tremendous opportunity it presents us as 
-a community.
-
-Therefore , this repository integrates Chamaconekt with Visa’s payment system via APIs and brings with it a versatile and secure mobile 
-payment solution powered by Visa. Chamaconekt can now have an end-to-end platform that can steadily realize its dream for financial 
-inclusion as we embrace innovation, at its best, to deliver superior services in the best way possible to our communities. Kenyans already 
-understand the benefits of mobile payments, and this integration offers them a better way to pay and be paid, with a service which is not 
-limited by the mobile network they have or the handset they use.
-
-![Introduction to Visa Direct](/vd_overview.jpg)
-
-Visa is the world's largest global payments company. In 2015, Visa processed $4.9 trillion worth of payment volume on Visa branded cards 
-globally.Visa has 2.4 billion cards in circulation and connects 36 million merchants locations with 14,000 plus financial institutions 
-done approximately 150 million times a day on the globe. Last year, Visa launched the [Visa developer platform](https://developer.visa.com/).
-This was a transformational development for Visa. It is a significant change in the way Visa will design, build and deliver products going
-forward. It's the first time in Visa's 50 year history that they have made their network, data , risk services , value added services 
-available to partners , clients and others as open APIs.
-
-Visa has built one of the world’s most advanced processing networks. It's capable of handling more than 24,000 transactions per second, 
-with reliability, convenience and security, including fraud protection for consumers and guaranteed payment for merchants.Integrating 
-with Visa brings the advantages of Visa’s global network - security, reliability and global acceptance - and allows consumers 
-to make payments both domestically and internationally.
-
-Visa is giving more people in more places access to electronic payments. From the world’s major cities to remote areas without banks,
-people are increasingly relying on digital currency along with mobile technology to use their money any time, make purchases online , 
-transfer funds across borders and access basic financial services. All of which makes their lives easier and grows economies.
-
-
-# Trends in the Global Financial Industry 
+## Introduction
 
 Global investment in fintech ventures tripled to $12.21 billion in 2014, clearly signifying that the digital revolution has arrived 
 in the financial services sector. It is still unclear whether this presents more of a challenge or an opportunity for the incumbents 
@@ -140,7 +36,104 @@ Today, the concern is that established financial services players are not doing 
 innovation investment. Legacy technology and the difficulty of deploying new technology fast is a big part of this issue. More worrying 
 is the speed at which these banks implement new technology. 
 
-# Chamaconekt-Visa 
+
+![Introduction to Visa Direct](/vd_overview.jpg)
+
+The expectations of a modern consumer have changed dramatically over the last few years, and consumers are asking for services
+hat are more personalized, faster, cheaper, and more easily accessible. The queues at the retail bank branches are getting smaller, and 
+the younger consumers wouldn’t even comprehend a bank that doesn’t have an app. As such, it is no longer enough to offer an app with basic 
+account-based services (look up my balance, view my transactions, deposit my checks, etc.), the app competition has moved on to more 
+innovative features.
+
+## Examples
+
+__Capital One Bank__
+The U.S. bank Capital One launched in 2016 a developer portal and new open APIs in a move that signaled a significant shift in open 
+banking platforms.
+
+The new developer portal provides a single point of reference for the bank’s engagement with developers, listing their open APIs. The 
+portal contains all the features that are now considered best practice for developer engagement including self-serve registration and 
+instant API access, sandbox testing environments, documentation, code snippets, and reference applications with sample code.
+
+The developer portal gives developers what they are looking for: easy-to-integrate APIs, a robust testing environment, great documentation
+that is comprehensive and simple, and sample code and reference applications.
+
+Capital One is one of the first banks going after developers as a new audience. The portal will also become the home base for Capital 
+One’s open source projects. Capital One’s foray into open source demonstrates both the company’s own internal reliance on APIs, and 
+their willingness to share dev tools with the community. Last year, the company released
+
+[![capitalone](/capitalone.png)](https://developer.capitalone.com/)
+
+__Mondo__
+At Monzo they are building a new kind of bank, built for your smartphone. The company, founded in early 2015, now has over 60 employees. 
+In August 2016 Monzo officially became a regulated bank and will be launching current accounts in a matter of months.
+
+Over 60,000 people in the UK are using the Monzo app as part of our Beta, on iOS or on Android, with hundreds more joining every day.
+
+[![mondo](/mondo.png)](https://monzo.com/)
+
+__Visa__
+Visa’s global network just got a whole lot more open for the developer community.
+
+Visa announced in 2016 the launch of Visa Developer, which will enable software application developers to have open access to Visa’s 
+payments technology, products and service. What this means is that, for the first time in Visa’s near 60 years of existence, it is 
+now ensuring its retail payments network is an open platform to be a source that Visa believes will “drive innovation in payments in 
+commerce.”
+
+The goal of the new developer platform is to assist financial institutions, merchants, and technology companies with meeting the 
+demands of consumers and merchants who are increasingly relying on devices to not only shop, but pay and get paid.
+
+The rollout of the new platform will give the software developer community access to Visa’s payments technology, which includes services 
+like: account holder identification, person-to-person payment capabilities, secure in-store and online payments services 
+like Visa Checkout, currency conversion and consumer transaction alerts. More payment capabilities will be added during the year, 
+according to Visa.
+
+The Visa Developer Platform has been a multi-year initiative under the umbrella of Visa’s global product and technology teams. That 
+team has been leading the charge to transform Visa’s payment products and services into APIs for developers to use.
+
+[![visa](/visa.png)](https://developer.visa.com/)
+
+__Mastercard__
+At the beginning of 2016, the mission for Mastercard was to “move beyond the payment.” The idea was to continue the mission of enabling 
+commerce for every device while at the same time build new ways for companies to build relationships and engagement with customers.
+
+This mission of enable and extend is taking a significant step forward from an implementation level. Mastercard announced that it has 
+redeveloped and re-launched its developer platform to make it much easier for developers to integrate Mastercard APIs to handle all kinds 
+of payments integration, customer intelligence, new device types and even financial inclusion.
+
+The Mastercard Developers platform will includes application programming interfaces—some new, some old—and introduces several new 
+features to make it easier to build with Mastercard technology.
+
+[![mastercard](/mastercard.png)](https://developer.mastercard.com/)
+
+
+## Chamaconekt Visa 
+As Chamaconekt, we are leveraging on such open APIs with payment systems like [Visa Inc.](https://developer.visa.com/) to help us build 
+the next generation of products and services for the financial services industry because of the tremendous opportunity it presents us as 
+a community.
+
+Therefore , this repository integrates Chamaconekt with Visa’s payment system via APIs and brings with it a versatile and secure mobile 
+payment solution powered by Visa. Chamaconekt can now have an end-to-end platform that can steadily realize its dream for financial 
+inclusion as we embrace innovation, at its best, to deliver superior services in the best way possible to our communities. Kenyans already 
+understand the benefits of mobile payments, and this integration offers them a better way to pay and be paid, with a service which is not 
+limited by the mobile network they have or the handset they use.
+
+Visa is the world's largest global payments company. In 2015, Visa processed $4.9 trillion worth of payment volume on Visa branded cards 
+globally.Visa has 2.4 billion cards in circulation and connects 36 million merchants locations with 14,000 plus financial institutions 
+done approximately 150 million times a day on the globe. Last year, Visa launched the [Visa developer platform](https://developer.visa.com/).
+This was a transformational development for Visa. It is a significant change in the way Visa will design, build and deliver products going
+forward. It's the first time in Visa's 50 year history that they have made their network, data , risk services , value added services 
+available to partners , clients and others as open APIs.
+
+Visa has built one of the world’s most advanced processing networks. It's capable of handling more than 24,000 transactions per second, 
+with reliability, convenience and security, including fraud protection for consumers and guaranteed payment for merchants.Integrating 
+with Visa brings the advantages of Visa’s global network - security, reliability and global acceptance - and allows consumers 
+to make payments both domestically and internationally.
+
+Visa is giving more people in more places access to electronic payments. From the world’s major cities to remote areas without banks,
+people are increasingly relying on digital currency along with mobile technology to use their money any time, make purchases online , 
+transfer funds across borders and access basic financial services. All of which makes their lives easier and grows economies.
+
 
 ## Overview
 
