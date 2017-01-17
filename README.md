@@ -1,5 +1,5 @@
 
-# Chamaconekt Visa 
+# Chamaconekt Payment Microservice  
 
 ![Introduction to Visa Direct](/vd_overview.jpg)
 
