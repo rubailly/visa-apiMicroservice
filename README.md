@@ -3,8 +3,24 @@
 ![Introduction to Visa Direct](/vd_overview.jpg)
 
 The innovation race is on in the financial services industry globally and it has manifested itself through the proliferation of Open API 
-portals.Networks, processors and banks are launching developer portals and inviting all developers to explore their Open APIs to build 
+portals.
+
+Networks, processors and banks are launching developer portals and inviting all developers to explore their Open APIs to build 
 their own rendition of the next killer application.
+
+# Examples
+
+1.[Capital One Bank]()
+![capitalone](/capitalone.png)
+
+2.[Mondo]()
+![mondo](/mondo.png)
+
+3.[Visa]()
+![visa](/visa.png)
+
+4.[Matercard]()
+![mastercard](/mastercard.png)
 
 As Chamaconekt, we are leveraging on such open APIs with payment systems like [Visa Inc.](https://developer.visa.com/) to help us build 
 the next generation of products and services for the financial services industry because of the tremendous opportunity it presents us as 
