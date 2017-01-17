@@ -106,7 +106,7 @@ team has been leading the charge to transform Visa’s payment products and serv
 
 [![visa](/visa.png)](https://developer.visa.com/)
 
-__4.) Mastercard__
+__iv.) Mastercard__
 
 At the beginning of 2016, the mission for Mastercard was to “move beyond the payment.” The idea was to continue the mission of enabling 
 commerce for every device while at the same time build new ways for companies to build relationships and engagement with customers.
@@ -123,15 +123,13 @@ features to make it easier to build with Mastercard technology.
 
 ## 2.Chamaconekt Visa 
 
-As Chamaconekt, we are leveraging on such open APIs with payment systems like [Visa Inc.](https://developer.visa.com/) to help us build 
-the next generation of products and services for the financial services industry because of the tremendous opportunity it presents us as 
-a community.
+As Chamaconekt, we are leveraging on open APIs from [Visa Inc.](https://developer.visa.com/) to help us build the next generation of 
+products and services.
 
-Therefore , this repository integrates Chamaconekt with Visa’s payment system via APIs and brings with it a versatile and secure mobile 
-payment solution powered by Visa. Chamaconekt can now have an end-to-end platform that can steadily realize its dream for financial 
-inclusion as we embrace innovation, at its best, to deliver superior services in the best way possible to our communities. Kenyans already 
-understand the benefits of mobile payments, and this integration offers them a better way to pay and be paid, with a service which is not 
-limited by the mobile network they have or the handset they use.
+This repository integrates Chamaconekt with Visa’s payment system via APIs and brings with it a versatile and secure mobile 
+payment solution powered by Visa. 
+
+### Why Visa?
 
 Visa is the world's largest global payments company. In 2015, Visa processed $4.9 trillion worth of payment volume on Visa branded cards 
 globally.Visa has 2.4 billion cards in circulation and connects 36 million merchants locations with 14,000 plus financial institutions 
@@ -149,16 +147,23 @@ Visa is giving more people in more places access to electronic payments. From th
 people are increasingly relying on digital currency along with mobile technology to use their money any time, make purchases online , 
 transfer funds across borders and access basic financial services. All of which makes their lives easier and grows economies.
 
+Chamaconekt can now have an end-to-end platform that can steadily realize its dream for financial inclusion as we embrace innovation, 
+at its best, to deliver superior services in the best way possible to our communities. Kenyans already understand the benefits of mobile 
+payments, and this integration offers them a better way to pay and be paid, with a service which is not limited by the mobile network 
+they have or the handset they use.
 
-## Overview
+__What APIs from Visa?__
 
-ChamaconektVisa integrates with Visa Direct APIs from Visa Inc. Visa Direct uses the push payment capability of Visa’s global payment 
-system to enable new ways for clients and consumers to send money to over one billion eligible Visa accounts. Visa Direct can be used 
-to create both consumer and business services including person-to-person money transfers and credit card payments as well as corporate 
-and merchant disbursements. The services can be offered over any channel (including personal computers, mobile phones, local bank 
-branches, or ATMs) and can be funded from many sources (including bank accounts or payment cards). Merchants, government entities, or 
-corporations can push payments to Visa accounts to disburse such things as tax refunds, insurance claims, rebates, affiliate and 
-contractor payouts, or expense reimbursements.
+Chamaconekt Visa integrates with Visa Direct APIs from Visa Inc. 
+
+Visa Direct uses the push payment capability of Visa’s global payment system to enable new ways for clients and consumers to send money 
+to over one billion eligible Visa accounts. 
+
+Visa Direct can be used to create both consumer and business services including person-to-person money transfers and credit card payments 
+as well as corporate and merchant disbursements. The services can be offered over any channel (including personal computers, mobile phones,
+local bank branches, or ATMs) and can be funded from many sources (including bank accounts or payment cards). Merchants, government 
+entities, or corporations can push payments to Visa accounts to disburse such things as tax refunds, insurance claims, rebates, affiliate 
+and contractor payouts, or expense reimbursements.
 
 Visa Direct also offers the capability to push payments to other U.S. debit networks using the Visa Push Payments Gateway Service (PPGS) 
 and the Funds Transfer APIs. PPGS allows originators to send their PushFundsTransactions (OCTs) and PullFundsTransactions (AFTs) to Visa 
@@ -173,18 +178,8 @@ Key Features:
     Use APIs inside ATM, mobile, web, and in-branch applications
 
 
-Visa Direct uses the push payment capability of Visa’s global payment system to enable new ways for clients and consumers to send money
-to over one billion eligible Visa accounts. Visa Direct can be used to create both consumer and business services including person-to-person money transfers and credit card payments as well as corporate and merchant disbursements. The services can be offered over any channel (including personal computers, mobile phones, local bank branches, or ATMs) and can be funded from many sources (including bank accounts or payment cards). 
-Merchants, government entities, or corporations can push payments to Visa accounts to disburse such things as tax refunds, insurance 
-claims, rebates, affiliate and contractor payouts, or expense reimbursements.
+__How does it work?__
 
-Visa Direct also offers the capability to push payments to other U.S. debit networks using the Visa Push Payments Gateway Service (PPGS) 
-and the Funds Transfer APIs. PPGS allows originators to send their PushFundsTransactions (OCTs) and PullFundsTransactions (AFTs) to Visa 
-for routing to multiple U.S. debit networks. The service provides authorization, clearing, settlement, reporting, and exception 
-processing support for debit networks. VisaNet translates and reformats the message into the correct network format, rather than 
-an originator having to develop and maintain transaction formats for each debit network.
-
-## How does it work?
 Visa Direct provides Originators (financial institutions and eligible third parties such as person-to-person payment service providers, 
 merchants, corporations, financial technology companies, and service providers) with a mechanism to push payments directly onto Visa 
 cards. This push payment capability is delivered through the use of the Original Credit Transaction (OCT), a Visa network transaction 
@@ -205,7 +200,7 @@ pull funds only from eligible Visa accounts. Once an OCT or AFT transaction is s
 Visa network and uses existing clearing and settlement mechanisms to manage the movement of funds between the sending and receiving 
 issuers.
 
-## Why Use It?
+__Why Use It?__
 
 Use Visa’s familiar global network and distribution to create an entirely new class of services based on the push payment capability of Visa Direct. Some of the opportunities include:
 
@@ -224,7 +219,7 @@ Using Visa Direct enables new money transfer services with:
     Trust: Financial and anti-money laundering standards and ongoing due diligence
 
 
-## Who Can Use It?
+__Who Can Use It?__
 
     Issuers
     Acquirers
