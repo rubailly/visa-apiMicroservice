@@ -14,18 +14,71 @@ innovative features.
 
 ## Examples
 
+
 __1.Capital One Bank__
+
+The U.S. bank Capital One launched in 2016 a developer portal and new open APIs in a move that signaled a significant shift in open 
+banking platforms.
+
+The new developer portal provides a single point of reference for the bank’s engagement with developers, listing their open APIs. The 
+portal contains all the features that are now considered best practice for developer engagement including self-serve registration and 
+instant API access, sandbox testing environments, documentation, code snippets, and reference applications with sample code.
+
+The developer portal gives developers what they are looking for: easy-to-integrate APIs, a robust testing environment, great documentation
+that is comprehensive and simple, and sample code and reference applications.
+
+Capital One is one of the first banks going after developers as a new audience. The portal will also become the home base for Capital 
+One’s open source projects. Capital One’s foray into open source demonstrates both the company’s own internal reliance on APIs, and 
+their willingness to share dev tools with the community. Last year, the company released
 
 [![capitalone](/capitalone.png)](https://developer.capitalone.com/)
 
 __2.Mondo__
+
+At Monzo they are building a new kind of bank, built for your smartphone. The company, founded in early 2015, now has over 60 employees. 
+In August 2016 Monzo officially became a regulated bank and will be launching current accounts in a matter of months.
+
+Over 60,000 people in the UK are using the Monzo app as part of our Beta, on iOS or on Android, with hundreds more joining every day.
+
 [![mondo](/mondo.png)](https://monzo.com/)
 
 __3.Visa__
+
+Visa’s global network just got a whole lot more open for the developer community.
+
+Visa announced in 2016 the launch of Visa Developer, which will enable software application developers to have open access to Visa’s 
+payments technology, products and service. What this means is that, for the first time in Visa’s near 60 years of existence, it is 
+now ensuring its retail payments network is an open platform to be a source that Visa believes will “drive innovation in payments in 
+commerce.”
+
+The goal of the new developer platform is to assist financial institutions, merchants, and technology companies with meeting the 
+demands of consumers and merchants who are increasingly relying on devices to not only shop, but pay and get paid.
+
+The rollout of the new platform will give the software developer community access to Visa’s payments technology, which includes services 
+like: account holder identification, person-to-person payment capabilities, secure in-store and online payments services 
+like Visa Checkout, currency conversion and consumer transaction alerts. More payment capabilities will be added during the year, 
+according to Visa.
+
+The Visa Developer Platform has been a multi-year initiative under the umbrella of Visa’s global product and technology teams. That 
+team has been leading the charge to transform Visa’s payment products and services into APIs for developers to use.
+
 [![visa](/visa.png)](https://developer.visa.com/)
 
 __4.Matercard__
+
+At the beginning of 2016, the mission for Mastercard was to “move beyond the payment.” The idea was to continue the mission of enabling 
+commerce for every device while at the same time build new ways for companies to build relationships and engagement with customers.
+
+This mission of enable and extend is taking a significant step forward from an implementation level. Mastercard announced that it has 
+redeveloped and re-launched its developer platform to make it much easier for developers to integrate Mastercard APIs to handle all kinds 
+of payments integration, customer intelligence, new device types and even financial inclusion.
+
+The Mastercard Developers platform will includes application programming interfaces—some new, some old—and introduces several new 
+features to make it easier to build with Mastercard technology.
+
 [![mastercard](/mastercard.png)](https://developer.mastercard.com/)
+
+
 
 As Chamaconekt, we are leveraging on such open APIs with payment systems like [Visa Inc.](https://developer.visa.com/) to help us build 
 the next generation of products and services for the financial services industry because of the tremendous opportunity it presents us as 
