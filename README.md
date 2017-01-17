@@ -202,7 +202,8 @@ issuers.
 
 ### Why Use It?
 
-Use Visa’s familiar global network and distribution to create an entirely new class of services based on the push payment capability of Visa Direct. Some of the opportunities include:
+Use Visa’s familiar global network and distribution to create an entirely new class of services based on the push payment capability of 
+Visa Direct. Some of the opportunities include:
 
     - P2P Money Transfer: Send funds to any eligible Visa account
     - Funds Disbursements: Send merchant, government, or corporate funds disbursements to a consumer’s Visa card.
