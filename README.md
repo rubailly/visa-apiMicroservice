@@ -1,40 +1,43 @@
 # Overview
 
-![Introduction to Visa Direct](/vd_overview.jpg)
-
 The innovation race is on in the financial services industry globally and it has manifested itself through the proliferation of Open API 
 portals.
 
 Networks, processors and banks are launching developer portals and inviting all developers to explore their Open APIs to build 
 their own rendition of the next killer application.
 
-# Examples
-
-1.[Capital One Bank]()
-![capitalone](/capitalone.png)
-
-2.[Mondo]()
-![mondo](/mondo.png)
-
-3.[Visa]()
-![visa](/visa.png)
-
-4.[Matercard]()
-![mastercard](/mastercard.png)
-
-As Chamaconekt, we are leveraging on such open APIs with payment systems like [Visa Inc.](https://developer.visa.com/) to help us build 
-the next generation of products and services for the financial services industry because of the tremendous opportunity it presents us as 
-a community.The expectations of a modern consumer have changed dramatically over the last few years, and consumers are asking for services
+The expectations of a modern consumer have changed dramatically over the last few years, and consumers are asking for services
 hat are more personalized, faster, cheaper, and more easily accessible. The queues at the retail bank branches are getting smaller, and 
 the younger consumers wouldn’t even comprehend a bank that doesn’t have an app. As such, it is no longer enough to offer an app with basic 
 account-based services (look up my balance, view my transactions, deposit my checks, etc.), the app competition has moved on to more 
 innovative features.
+
+## Examples
+
+__1.Capital One Bank__
+
+[![capitalone](/capitalone.png)](https://developer.capitalone.com/)
+
+__2.Mondo__
+[![mondo](/mondo.png)](https://monzo.com/)
+
+__3.Visa__
+[![visa](/visa.png)](https://developer.visa.com/)
+
+__4.Matercard__
+[![mastercard](/mastercard.png)](https://developer.mastercard.com/)
+
+As Chamaconekt, we are leveraging on such open APIs with payment systems like [Visa Inc.](https://developer.visa.com/) to help us build 
+the next generation of products and services for the financial services industry because of the tremendous opportunity it presents us as 
+a community.
 
 Therefore , this repository integrates Chamaconekt with Visa’s payment system via APIs and brings with it a versatile and secure mobile 
 payment solution powered by Visa. Chamaconekt can now have an end-to-end platform that can steadily realize its dream for financial 
 inclusion as we embrace innovation, at its best, to deliver superior services in the best way possible to our communities. Kenyans already 
 understand the benefits of mobile payments, and this integration offers them a better way to pay and be paid, with a service which is not 
 limited by the mobile network they have or the handset they use.
+
+![Introduction to Visa Direct](/vd_overview.jpg)
 
 Visa is the world's largest global payments company. In 2015, Visa processed $4.9 trillion worth of payment volume on Visa branded cards 
 globally.Visa has 2.4 billion cards in circulation and connects 36 million merchants locations with 14,000 plus financial institutions 
