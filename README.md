@@ -1,8 +1,6 @@
-# Chamaconekt Visa API
+# Overview
 
-This repository contains internal APIs that Chamaconekt Microservices use to deliver value using Visa's rich API sets.
-
-## Overview
+![Introduction to Visa Direct](/vd_overview.jpg)
 
 The innovation race is on in the financial services industry globally and it has manifested itself through the proliferation of Open API 
 portals.Networks, processors and banks are launching developer portals and inviting all developers to explore their Open APIs to build 
@@ -39,7 +37,7 @@ people are increasingly relying on digital currency along with mobile technology
 transfer funds across borders and access basic financial services. All of which makes their lives easier and grows economies.
 
 
-## Trends in the Global Financial Industry 
+# Trends in the Global Financial Industry 
 
 Global investment in fintech ventures tripled to $12.21 billion in 2014, clearly signifying that the digital revolution has arrived 
 in the financial services sector. It is still unclear whether this presents more of a challenge or an opportunity for the incumbents 
@@ -69,6 +67,113 @@ costs or create a new market opportunity.
 Today, the concern is that established financial services players are not doing enough to keep up to speed with this surge in new 
 innovation investment. Legacy technology and the difficulty of deploying new technology fast is a big part of this issue. More worrying 
 is the speed at which these banks implement new technology. 
+
+# Chamaconekt-Visa 
+
+## Overview
+
+ChamaconektVisa integrates with Visa Direct APIs from Visa Inc. Visa Direct uses the push payment capability of Visa’s global payment 
+system to enable new ways for clients and consumers to send money to over one billion eligible Visa accounts. Visa Direct can be used 
+to create both consumer and business services including person-to-person money transfers and credit card payments as well as corporate 
+and merchant disbursements. The services can be offered over any channel (including personal computers, mobile phones, local bank 
+branches, or ATMs) and can be funded from many sources (including bank accounts or payment cards). Merchants, government entities, or 
+corporations can push payments to Visa accounts to disburse such things as tax refunds, insurance claims, rebates, affiliate and 
+contractor payouts, or expense reimbursements.
+
+Visa Direct also offers the capability to push payments to other U.S. debit networks using the Visa Push Payments Gateway Service (PPGS) 
+and the Funds Transfer APIs. PPGS allows originators to send their PushFundsTransactions (OCTs) and PullFundsTransactions (AFTs) to Visa 
+for routing to multiple U.S. debit networks. The service provides authorization, clearing, settlement, reporting, and exception 
+processing support for debit networks. VisaNet translates and reformats the message into the correct network format, rather than an 
+originator having to develop and maintain transaction formats for each debit network.
+
+Key Features:
+
+    Push payments to over one billion eligible Visa accounts
+    Fund transfers from a variety of sources
+    Use APIs inside ATM, mobile, web, and in-branch applications
+
+
+Visa Direct uses the push payment capability of Visa’s global payment system to enable new ways for clients and consumers to send money
+to over one billion eligible Visa accounts. Visa Direct can be used to create both consumer and business services including person-to-person money transfers and credit card payments as well as corporate and merchant disbursements. The services can be offered over any channel (including personal computers, mobile phones, local bank branches, or ATMs) and can be funded from many sources (including bank accounts or payment cards). 
+Merchants, government entities, or corporations can push payments to Visa accounts to disburse such things as tax refunds, insurance 
+claims, rebates, affiliate and contractor payouts, or expense reimbursements.
+
+Visa Direct also offers the capability to push payments to other U.S. debit networks using the Visa Push Payments Gateway Service (PPGS) 
+and the Funds Transfer APIs. PPGS allows originators to send their PushFundsTransactions (OCTs) and PullFundsTransactions (AFTs) to Visa 
+for routing to multiple U.S. debit networks. The service provides authorization, clearing, settlement, reporting, and exception 
+processing support for debit networks. VisaNet translates and reformats the message into the correct network format, rather than 
+an originator having to develop and maintain transaction formats for each debit network.
+
+## How does it work?
+Visa Direct provides Originators (financial institutions and eligible third parties such as person-to-person payment service providers, 
+merchants, corporations, financial technology companies, and service providers) with a mechanism to push payments directly onto Visa 
+cards. This push payment capability is delivered through the use of the Original Credit Transaction (OCT), a Visa network transaction 
+that enables eligible Visa cards to receive push payment credits. Visa Direct Originators can submit OCTs either as ISO-formatted 
+messages through a network endpoint connection or directly into the Visa network as an API call using the Funds Transfer APIs. 
+Originators can use this transaction and the underlying framework of rules and controls to create new consumer- and business-facing 
+services.
+
+![How does it work?](/vd_getting_started.png)
+
+As one of the means to fund a push payment, Visa Direct also supports the use of the Account Funding Transaction (AFT), a Visa network 
+transaction that enables funds to be pulled from an eligible Visa card. As with the OCT, Visa Direct Originators can submit AFT 
+transactions as either an ISO message or directly through an API call to the Funds Transfer APIs.
+
+Originators can use the Funds Transfer APIs (or the OCT ISO transaction) to push funds into a Visa account using any source of funds 
+available to them, including a pull from a Visa account or a bank account. The Funds Transfer APIs (or the AFT ISO transaction) can 
+pull funds only from eligible Visa accounts. Once an OCT or AFT transaction is submitted via either method, it travels across the 
+Visa network and uses existing clearing and settlement mechanisms to manage the movement of funds between the sending and receiving 
+issuers.
+
+## Why Use It?
+
+Use Visa’s familiar global network and distribution to create an entirely new class of services based on the push payment capability of Visa Direct. Some of the opportunities include:
+
+    P2P Money Transfer: Send funds to any eligible Visa account
+    Funds Disbursements: Send merchant, government, or corporate funds disbursements to a consumer’s Visa card.
+    Prepaid Load: Load funds to an eligible Visa reloadable prepaid card
+    Credit Card Bill Pay: Pay a Visa credit card bill
+
+Through the mVisa API, Visa Direct also enables mobile-based merchant payments using push payments. mVisa is presently available only in select markets, so contact your Visa representative for details.
+
+Using Visa Direct enables new money transfer services with:
+
+    Security: Risk controls and straight-through electronic processing capabilities
+    Reliability: The reliability of the Visa network and framework of rules and controls to handle exceptions, manage risk and fraud, and provide value-added services
+    Speed: Receive funds within 30 minutes from Fast Funds recipient issuers
+    Trust: Financial and anti-money laundering standards and ongoing due diligence
+
+
+## Who Can Use It?
+
+    Issuers
+    Acquirers
+    Merchants
+    Independent Developers
+    Governments and Corporations
+
+### APIs Included
+
+Funds Transfer
+
+The Funds Transfer API pulls funds from a sender’s Visa account (usually to fund a push payment to a recipient’s account) by initiating an Account Funding Transaction. It can then be followed by a push payment to a recipient’s Visa account that initiates an Original Credit Transaction. Push payment is a standalone capability and can be used either in conjunction with a pull payment (if the source of funds is a Visa card) or independently (if the source of funds is not a Visa card). Should a push payment be declined, the Funds Transfer API can also be used to return the funds to the sender’s funding source.
+
+![Using the Funds Transfer API 1](/vd_pull_push.png)
+![Using the Funds Transfer API 2](/vd_push.png)
+ 
+Watch List Screening
+
+The Watch List Screening API provides a score that evaluates how closely an individual's name, city, and country match to entries in the OFAC SDN watch list. It also provides a status value that indicates if Visa would likely decline a cross-border transaction involving this individual.
+
+mVisa
+
+The mVisa API has been optimized to push payments for mobile-to-mobile card-less merchant payments as well as for cash in or cash out to a Visa card. This capability is currently available only in select markets. Please contact your Visa representative for more information.
+
+![Using the mVisa API](/vd_mVisa.png)
+ 
+Reports (Beta)
+
+The Reports API provides reporting capabilities such as transaction reconciliation data in the API response. The data needed for reconciliation includes both push (OCT) and pull (AFT) transaction details and any exceptions such as chargebacks and reversals. This data is provided to allow you to reconcile the transactions sent by your systems with what was processed through VisaNet and may be used solely for such purposes.
 
 
 ## API design
@@ -197,6 +302,8 @@ goa-ChamaconektVisa
 Once running `goa-ChamaconektVisa` listens on port 8080. 
 
 ## APIs
+
+
 
 ### Deposit API
 THe Deposit API is an internal API that interacts with Visa's [CashInPushPayments POST API]()
