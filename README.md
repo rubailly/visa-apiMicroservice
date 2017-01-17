@@ -4,25 +4,34 @@
 ![Introduction to Visa Direct](/vd_overview.jpg)
 
 The innovation race is on in the financial services industry globally and it has manifested itself through the proliferation of Open API 
-portals.Networks, processors and banks are launching developer portals and inviting all developers to explore their Open APIs to build 
+portals.
+
+Networks, processors and banks are launching developer portals and inviting all developers to explore their Open APIs to build 
 their own rendition of the next killer application.
+
+The world of innovation is incredibly fast paced, and it is no longer possible to keep up, if we plan to ‘own’ every layer that makes 
+up our products and services. We need to rely on services from other companies, our partners, or even competitors. While this may sound 
+counterintuitive, there is no other alternative, as missing out on the innovation trends is equivalent to becoming irrelevant in the 
+marketplace.
 
 ## Introduction
 
 Global investment in fintech ventures tripled to $12.21 billion in 2014, clearly signifying that the digital revolution has arrived 
 in the financial services sector. It is still unclear whether this presents more of a challenge or an opportunity for the incumbents 
-in the industry. But established financial services players are starting to take bold steps to engage with emerging innovations.
+in the industry. 
+
+But established financial services players are starting to take bold steps to engage with emerging innovations.
 
 It is clear that the digital revolution in financial services is under way, but the impact on current banking players is not as well 
-defined. Digital disruption has the potential to shrink the role and relevance of today’s banks, and simultaneously help them create 
-better, faster, cheaper services that make them an even more essential part of everyday life for institutions and individuals. To make 
-the impact positive, banks are acknowledging that they need to shake themselves out of institutional complacency and recognize that 
-merely navigating waves of regulation and waiting for interest rates to rise won’t protect them from obsolescence. 
+defined. 
 
-The world of innovation is incredibly fast paced, and it is no longer possible to keep up, if we plan to ‘own’ every layer that makes 
-up our products and services. We need to rely on services from other companies, our partners, or even competitors. While this may sound 
-counterintuitive, there is no other alternative, as missing out on the innovation trends is equivalent to becoming irrelevant in the 
-marketplace. 
+Digital disruption has the potential to shrink the role and relevance of today’s banks, and simultaneously help them create 
+better, faster, cheaper services that make them an even more essential part of everyday life for institutions and individuals. 
+
+To make the impact positive, banks are acknowledging that they need to shake themselves out of institutional complacency and recognize 
+that merely navigating waves of regulation and waiting for interest rates to rise won’t protect them from obsolescence. 
+
+__Emerging themes for banking players__
 
 Openness, Collaboration and Investment are the critical themes that emerge for existing banking players if they are to benefit from 
 growth driven by new services and productivity. Embracing these themes and creating the right foundations creates challenges to the 
@@ -38,18 +47,15 @@ Today, the concern is that established financial services players are not doing 
 innovation investment. Legacy technology and the difficulty of deploying new technology fast is a big part of this issue. More worrying 
 is the speed at which these banks implement new technology. 
 
-
-
-
 The expectations of a modern consumer have changed dramatically over the last few years, and consumers are asking for services
 hat are more personalized, faster, cheaper, and more easily accessible. The queues at the retail bank branches are getting smaller, and 
 the younger consumers wouldn’t even comprehend a bank that doesn’t have an app. As such, it is no longer enough to offer an app with basic 
 account-based services (look up my balance, view my transactions, deposit my checks, etc.), the app competition has moved on to more 
 innovative features.
 
-## Examples
+__Examples__
 
-__Capital One Bank__
+__1.Capital One Bank__
 The U.S. bank Capital One launched in 2016 a developer portal and new open APIs in a move that signaled a significant shift in open 
 banking platforms.
 
@@ -66,7 +72,7 @@ their willingness to share dev tools with the community. Last year, the company 
 
 [![capitalone](/capitalone.png)](https://developer.capitalone.com/)
 
-__Mondo__
+__2.Mondo__
 At Monzo they are building a new kind of bank, built for your smartphone. The company, founded in early 2015, now has over 60 employees. 
 In August 2016 Monzo officially became a regulated bank and will be launching current accounts in a matter of months.
 
@@ -74,7 +80,7 @@ Over 60,000 people in the UK are using the Monzo app as part of our Beta, on iOS
 
 [![mondo](/mondo.png)](https://monzo.com/)
 
-__Visa__
+__3.Visa__
 Visa’s global network just got a whole lot more open for the developer community.
 
 Visa announced in 2016 the launch of Visa Developer, which will enable software application developers to have open access to Visa’s 
@@ -95,7 +101,7 @@ team has been leading the charge to transform Visa’s payment products and serv
 
 [![visa](/visa.png)](https://developer.visa.com/)
 
-__Mastercard__
+__4.Mastercard__
 At the beginning of 2016, the mission for Mastercard was to “move beyond the payment.” The idea was to continue the mission of enabling 
 commerce for every device while at the same time build new ways for companies to build relationships and engagement with customers.
 
