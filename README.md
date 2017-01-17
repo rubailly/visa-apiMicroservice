@@ -152,7 +152,7 @@ at its best, to deliver superior services in the best way possible to our commun
 payments, and this integration offers them a better way to pay and be paid, with a service which is not limited by the mobile network 
 they have or the handset they use.
 
-__What APIs from Visa?__
+### What APIs from Visa?
 
 Chamaconekt Visa integrates with Visa Direct APIs from Visa Inc. 
 
@@ -173,12 +173,12 @@ originator having to develop and maintain transaction formats for each debit net
 
 Key Features:
 
-    Push payments to over one billion eligible Visa accounts
-    Fund transfers from a variety of sources
-    Use APIs inside ATM, mobile, web, and in-branch applications
+    - Push payments to over one billion eligible Visa accounts
+    - Fund transfers from a variety of sources
+    - Use APIs inside ATM, mobile, web, and in-branch applications
 
 
-__How does it work?__
+### How does it work?
 
 Visa Direct provides Originators (financial institutions and eligible third parties such as person-to-person payment service providers, 
 merchants, corporations, financial technology companies, and service providers) with a mechanism to push payments directly onto Visa 
@@ -200,34 +200,34 @@ pull funds only from eligible Visa accounts. Once an OCT or AFT transaction is s
 Visa network and uses existing clearing and settlement mechanisms to manage the movement of funds between the sending and receiving 
 issuers.
 
-__Why Use It?__
+### Why Use It?
 
 Use Visa’s familiar global network and distribution to create an entirely new class of services based on the push payment capability of Visa Direct. Some of the opportunities include:
 
-    P2P Money Transfer: Send funds to any eligible Visa account
-    Funds Disbursements: Send merchant, government, or corporate funds disbursements to a consumer’s Visa card.
-    Prepaid Load: Load funds to an eligible Visa reloadable prepaid card
-    Credit Card Bill Pay: Pay a Visa credit card bill
+    - P2P Money Transfer: Send funds to any eligible Visa account
+    - Funds Disbursements: Send merchant, government, or corporate funds disbursements to a consumer’s Visa card.
+    - Prepaid Load: Load funds to an eligible Visa reloadable prepaid card
+    - Credit Card Bill Pay: Pay a Visa credit card bill
 
 Through the mVisa API, Visa Direct also enables mobile-based merchant payments using push payments. mVisa is presently available only in select markets, so contact your Visa representative for details.
 
 Using Visa Direct enables new money transfer services with:
 
-    Security: Risk controls and straight-through electronic processing capabilities
-    Reliability: The reliability of the Visa network and framework of rules and controls to handle exceptions, manage risk and fraud, and provide value-added services
-    Speed: Receive funds within 30 minutes from Fast Funds recipient issuers
-    Trust: Financial and anti-money laundering standards and ongoing due diligence
+    - Security: Risk controls and straight-through electronic processing capabilities
+    - Reliability: The reliability of the Visa network and framework of rules and controls to handle exceptions, manage risk and fraud, and provide value-added services
+    - Speed: Receive funds within 30 minutes from Fast Funds recipient issuers
+    - Trust: Financial and anti-money laundering standards and ongoing due diligence
 
 
 __Who Can Use It?__
 
-    Issuers
-    Acquirers
-    Merchants
-    Independent Developers
-    Governments and Corporations
+    - Issuers
+    - Acquirers
+    - Merchants
+    - Independent Developers
+    - Governments and Corporations
 
-### APIs Included
+## APIs
 
 Funds Transfer
 
