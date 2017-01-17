@@ -121,7 +121,7 @@ features to make it easier to build with Mastercard technology.
 [![mastercard](/mastercard.png)](https://developer.mastercard.com/)
 
 
-## 2.Chamaconekt Visa 
+## 2.0 Chamaconekt Visa 
 
 As Chamaconekt, we are leveraging on open APIs from [Visa Inc.](https://developer.visa.com/) to help us build the next generation of 
 products and services.
@@ -205,10 +205,10 @@ issuers.
 Use Visa’s familiar global network and distribution to create an entirely new class of services based on the push payment capability of 
 Visa Direct. Some of the opportunities include:
 
-- P2P Money Transfer: Send funds to any eligible Visa account
-- Funds Disbursements: Send merchant, government, or corporate funds disbursements to a consumer’s Visa card.
-- Prepaid Load: Load funds to an eligible Visa reloadable prepaid card
-- Credit Card Bill Pay: Pay a Visa credit card bill
+  - P2P Money Transfer: Send funds to any eligible Visa account
+  - Funds Disbursements: Send merchant, government, or corporate funds disbursements to a consumer’s Visa card.
+  - Prepaid Load: Load funds to an eligible Visa reloadable prepaid card
+  - Credit Card Bill Pay: Pay a Visa credit card bill
 
 Through the mVisa API, Visa Direct also enables mobile-based merchant payments using push payments. mVisa is presently available only in select markets, so contact your Visa representative for details.
 
@@ -222,38 +222,86 @@ Using Visa Direct enables new money transfer services with:
 
 __Who Can Use It?__
 
-    - Issuers
-    - Acquirers
-    - Merchants
-    - Independent Developers
-    - Governments and Corporations
+   - Issuers
+   - Acquirers
+   - Merchants
+   - Independent Developers
+   - Governments and Corporations
 
-## APIs
+## 3.0 APIs
 
-Funds Transfer
+### 3.1 Funds Transfer
 
-The Funds Transfer API pulls funds from a sender’s Visa account (usually to fund a push payment to a recipient’s account) by initiating an Account Funding Transaction. It can then be followed by a push payment to a recipient’s Visa account that initiates an Original Credit Transaction. Push payment is a standalone capability and can be used either in conjunction with a pull payment (if the source of funds is a Visa card) or independently (if the source of funds is not a Visa card). Should a push payment be declined, the Funds Transfer API can also be used to return the funds to the sender’s funding source.
+The Funds Transfer API pulls funds from a sender’s Visa account (usually to fund a push payment to a recipient’s account) by initiating 
+an Account Funding Transaction. It can then be followed by a push payment to a recipient’s Visa account that initiates an Original Credit
+Transaction. Push payment is a standalone capability and can be used either in conjunction with a pull payment (if the source of funds 
+is a Visa card) or independently (if the source of funds is not a Visa card). Should a push payment be declined, the Funds Transfer API 
+can also be used to return the funds to the sender’s funding source.
 
 ![Using the Funds Transfer API 1](/vd_pull_push.png)
 ![Using the Funds Transfer API 2](/vd_push.png)
  
-Watch List Screening
+### 3.2 Watch List Screening
 
-The Watch List Screening API provides a score that evaluates how closely an individual's name, city, and country match to entries in the OFAC SDN watch list. It also provides a status value that indicates if Visa would likely decline a cross-border transaction involving this individual.
+The Watch List Screening API provides a score that evaluates how closely an individual's name, city, and country match to entries in the 
+OFAC SDN watch list. It also provides a status value that indicates if Visa would likely decline a cross-border transaction involving this 
+individual.
 
-mVisa
+### 3.3 mVisa
 
-The mVisa API has been optimized to push payments for mobile-to-mobile card-less merchant payments as well as for cash in or cash out to a Visa card. This capability is currently available only in select markets. Please contact your Visa representative for more information.
+The mVisa API has been optimized to push payments for mobile-to-mobile card-less merchant payments as well as for cash in or cash out to 
+a Visa card. This capability is currently available only in select markets. Please contact your Visa representative for more information.
 
 ![Using the mVisa API](/vd_mVisa.png)
  
-Reports (Beta)
+### 3.4 Reports (Beta)
 
-The Reports API provides reporting capabilities such as transaction reconciliation data in the API response. The data needed for reconciliation includes both push (OCT) and pull (AFT) transaction details and any exceptions such as chargebacks and reversals. This data is provided to allow you to reconcile the transactions sent by your systems with what was processed through VisaNet and may be used solely for such purposes.
+The Reports API provides reporting capabilities such as transaction reconciliation data in the API response. The data needed for 
+reconciliation includes both push (OCT) and pull (AFT) transaction details and any exceptions such as chargebacks and reversals. This 
+data is provided to allow you to reconcile the transactions sent by your systems with what was processed through VisaNet and may be used 
+solely for such purposes.
+
+## API Design in Chamaconekt Visa
+
+__Deposit API__
+
+THe Deposit API is an internal API that interacts with Visa's [CashInPushPayments POST API]()
+
+__Withdrawal API__ 
+
+The Withdrawal API is an internal API that interacts with Visa's [CashOutPushPayments POST]()
+
+__Payment API__ 
+
+The Payment API is an internal API that interacts with Visa's [MerchantPushPayments POST]() that 
+
+This API is used for payment to small financial institutions for goods or services purchased, either face-to-face or remote.This is 
+leveraged using a mobile phone which clients use to  authenticate themselves and also provide payment instructions to the relevant 
+institution. .Each and every institution has a unique ID and can be captured during payment via QR codes , key entry , NFC or other means
+
+Upon receiving the payment instructions, the clients issuer (Bank that provided you your Visa card) sends payment instructions to the
+instructions bank account.
+
+The institutions acquirer(a bank or financial institution that processes credit or debit card payments on behalf of a merchant) processes 
+the Visa message, creates a record of merchant payment and reverts back with a response message containing the MerchantPushPayments Response Attributes.
+
+An acquiring bank is a bank or financial institution that processes credit or debit card payments on behalf of a merchant.
+
+__Checkout API__ 
+
+The Checkout API is an internal API that interacts with Visa's [Get Payment Data API](https://developer.visa.com/products/visa_checkout/reference#visa_checkout__get_payment_data_api) 
+that obtains clients payment information associated with a payment request from a Visa Checkout transaction.ChamaconektVisa processes
+the data as a convenience.This API retrieves the client's payment information for a particular order. 
+
+__Validate-checkout API__
+
+The Validate-checkout API is an internal API that interacts with Visa's [Update Payment Information API]()  to provide other Chamaconekt 
+microservices with the status of the transaction and final payment amounts  a client is making in the Visa Checkout .This API confirms, and if needed 
+modify, the amounts the client specified in the Visa Checkout for a transaction.
 
 
-## API design
 
+## 4.0 API Design
 
 The API service has been described using the goa design language under the directory called design.It has the following files;
 
@@ -284,10 +332,6 @@ goagen generates  a tool by compiling the command specific code generation algor
 - Call the code
 
     ``` ./chamaconektvisa-cli ```
-
-- Available commands on the CLI
-    create
-    show
 
 ### How to access the Swagger UI for API documentation.
 
@@ -376,43 +420,6 @@ goa-ChamaconektVisa
 ```
 
 Once running `goa-ChamaconektVisa` listens on port 8080. 
-
-## APIs
-
-
-
-### Deposit API
-THe Deposit API is an internal API that interacts with Visa's [CashInPushPayments POST API]()
-
-### Withdrawal API
-The Withdrawal API is an internal API that interacts with Visa's [CashOutPushPayments POST]()
-
-### Payment API 
-The Payment API is an internal API that interacts with Visa's [MerchantPushPayments POST]() that 
-
-This API is used for payment to small financial institutions for goods or services purchased, either face-to-face or remote.This is 
-leveraged using a mobile phone which clients use to  authenticate themselves and also provide payment instructions to the relevant 
-institution. .Each and every institution has a unique ID and can be captured during payment via QR codes , key entry , NFC or other means
-
-Upon receiving the payment instructions, the clients issuer (Bank that provided you your Visa card) sends payment instructions to the
-instructions bank account.
-
-The institutions acquirer(a bank or financial institution that processes credit or debit card payments on behalf of a merchant) processes 
-the Visa message, creates a record of merchant payment and reverts back with a response message containing the MerchantPushPayments Response Attributes.
-
-An acquiring bank is a bank or financial institution that processes credit or debit card payments on behalf of a merchant.
-
-
-###  Checkout API 
-
-The Checkout API is an internal API that interacts with Visa's [Get Payment Data API](https://developer.visa.com/products/visa_checkout/reference#visa_checkout__get_payment_data_api) 
-that obtains clients payment information associated with a payment request from a Visa Checkout transaction.ChamaconektVisa processes
-the data as a convenience.This API retrieves the client's payment information for a particular order. 
-
-### Validate-checkout API
-The Validate-checkout API is an internal API that interacts with Visa's [Update Payment Information API]()  to provide other Chamaconekt 
-microservices with the status of the transaction and final payment amounts  a client is making in the Visa Checkout .This API confirms, and if needed 
-modify, the amounts the client specified in the Visa Checkout for a transaction.
 
 # Contributing 
 
