@@ -13,7 +13,7 @@ up our products and services. We need to rely on services from other companies, 
 counterintuitive, there is no other alternative, as missing out on the innovation trends is equivalent to becoming irrelevant in the 
 marketplace.
 
-## Introduction
+## 1.Introduction
 
 Global investment in Fintech ventures tripled to $12.21 billion in 2014, clearly signifying that the digital revolution has arrived 
 in the Financial services sector. It is still unclear whether this presents more of a challenge or an opportunity for the incumbents 
@@ -56,7 +56,7 @@ innovative features.
 
 __Examples__
 
-__1.Capital One Bank__
+__i.) Capital One Bank__
 
 The U.S. bank [Capital One](https://capitalone.com/) launched in 2016 a developer portal and new open APIs in a move that signaled a 
 significant shift in open banking platforms.
@@ -75,7 +75,7 @@ the company’s own internal reliance on APIs, and their willingness to share de
 
 [![capitalone](/capitalone.png)](https://developer.capitalone.com/)
 
-__2.Mondo__
+__ii.) Mondo__
 
 At Monzo they are building a new kind of bank, built for your smartphone. The company, founded in early 2015, now has over 60 employees. 
 In August 2016 Monzo officially became a regulated bank and will be launching current accounts in a matter of months.
@@ -84,7 +84,7 @@ Over 60,000 people in the UK are using the Monzo app as part of our Beta, on iOS
 
 [![mondo](/mondo.png)](https://monzo.com/)
 
-__3.Visa__
+__iii.) Visa__
 
 Visa’s global network just got a whole lot more open for the developer community.
 
@@ -106,7 +106,7 @@ team has been leading the charge to transform Visa’s payment products and serv
 
 [![visa](/visa.png)](https://developer.visa.com/)
 
-__4.Mastercard__
+__4.) Mastercard__
 
 At the beginning of 2016, the mission for Mastercard was to “move beyond the payment.” The idea was to continue the mission of enabling 
 commerce for every device while at the same time build new ways for companies to build relationships and engagement with customers.
@@ -121,7 +121,7 @@ features to make it easier to build with Mastercard technology.
 [![mastercard](/mastercard.png)](https://developer.mastercard.com/)
 
 
-## Chamaconekt Visa 
+## 2.Chamaconekt Visa 
 
 As Chamaconekt, we are leveraging on such open APIs with payment systems like [Visa Inc.](https://developer.visa.com/) to help us build 
 the next generation of products and services for the financial services industry because of the tremendous opportunity it presents us as 
