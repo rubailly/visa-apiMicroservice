@@ -1,6 +1,8 @@
 
 # Chamaconekt Visa 
 
+![Introduction to Visa Direct](/vd_overview.jpg)
+
 The innovation race is on in the financial services industry globally and it has manifested itself through the proliferation of Open API 
 portals.Networks, processors and banks are launching developer portals and inviting all developers to explore their Open APIs to build 
 their own rendition of the next killer application.
@@ -37,7 +39,7 @@ innovation investment. Legacy technology and the difficulty of deploying new tec
 is the speed at which these banks implement new technology. 
 
 
-![Introduction to Visa Direct](/vd_overview.jpg)
+
 
 The expectations of a modern consumer have changed dramatically over the last few years, and consumers are asking for services
 hat are more personalized, faster, cheaper, and more easily accessible. The queues at the retail bank branches are getting smaller, and 
