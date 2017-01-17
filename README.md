@@ -205,19 +205,19 @@ issuers.
 Use Visa’s familiar global network and distribution to create an entirely new class of services based on the push payment capability of 
 Visa Direct. Some of the opportunities include:
 
-    - P2P Money Transfer: Send funds to any eligible Visa account
-    - Funds Disbursements: Send merchant, government, or corporate funds disbursements to a consumer’s Visa card.
-    - Prepaid Load: Load funds to an eligible Visa reloadable prepaid card
-    - Credit Card Bill Pay: Pay a Visa credit card bill
+- P2P Money Transfer: Send funds to any eligible Visa account
+- Funds Disbursements: Send merchant, government, or corporate funds disbursements to a consumer’s Visa card.
+- Prepaid Load: Load funds to an eligible Visa reloadable prepaid card
+- Credit Card Bill Pay: Pay a Visa credit card bill
 
 Through the mVisa API, Visa Direct also enables mobile-based merchant payments using push payments. mVisa is presently available only in select markets, so contact your Visa representative for details.
 
 Using Visa Direct enables new money transfer services with:
 
-    - Security: Risk controls and straight-through electronic processing capabilities
-    - Reliability: The reliability of the Visa network and framework of rules and controls to handle exceptions, manage risk and fraud, and provide value-added services
-    - Speed: Receive funds within 30 minutes from Fast Funds recipient issuers
-    - Trust: Financial and anti-money laundering standards and ongoing due diligence
+   - Security: Risk controls and straight-through electronic processing capabilities
+   - Reliability: The reliability of the Visa network and framework of rules and controls to handle exceptions, manage risk and fraud, and provide value-added services
+   - Speed: Receive funds within 30 minutes from Fast Funds recipient issuers
+   - Trust: Financial and anti-money laundering standards and ongoing due diligence
 
 
 __Who Can Use It?__
