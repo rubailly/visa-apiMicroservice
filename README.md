@@ -255,7 +255,7 @@ a Visa card.
 This capability is currently available only in select markets. Please contact your Visa representative for more information.
 
 
-__ - Deposit API__
+    __- Deposit API__
 
 THe Deposit API is an internal API that interacts with Visa's [CashInPushPayments POST API]()
 
