@@ -451,11 +451,10 @@ william@william-Compaq-610:~/chamaconekt/gocode/src/ChamaconektVisa$ ./Chamacone
 2017/01/13 16:18:39 [INFO] mount ctrl=Withdrawal action=Show route=GET /withdrawal/:id
 2017/01/13 16:18:39 [INFO] listen transport=http addr=:8080
 ```
-Notice there are two new endpoints that our API is exposing; The ```swagger-ui``` and the 
-```swagger.json``` 
 
-The content of the app package.
-In the app packages is where the bindings happen between the Go http server and the code.
+
+Notice there are two new endpoints that our API is exposing; The ```swagger-ui``` and the ```swagger.json``` . The content of the app 
+package. In the app packages is where the bindings happen between the Go http server and the code.
 
 ```controllers.go ```  Contains the controller interface type definitions. There is one such interface per resource defined in the design 
 language. The file also contains the code that “mounts” implementations of these controller interfaces onto the service. The exact meaning 
