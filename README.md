@@ -282,20 +282,26 @@ The Validate-checkout API is an internal API that interacts with Visa's [Update 
 microservices with the status of the transaction and final payment amounts  a client is making in the Visa Checkout .This API confirms, 
 and if needed modify, the amounts the client specified in the Visa Checkout for a transaction.
 
-### Funds Transfer
+### Funds Transfer API v1
 
 The Funds Transfer API pulls funds from a sender’s Visa account (usually to fund a push payment to a recipient’s account) by initiating 
-an Account Funding Transaction. It can then be followed by a push payment to a recipient’s Visa account that initiates an Original Credit
-Transaction. Push payment is a standalone capability and can be used either in conjunction with a pull payment (if the source of funds 
+an Account Funding Transaction. 
+
+It can then be followed by a push payment to a recipient’s Visa account that initiates an Original Credit Transaction. 
+
+Push payment is a standalone capability and can be used either in conjunction with a pull payment (if the source of funds 
 is a Visa card) or independently (if the source of funds is not a Visa card). Should a push payment be declined, the Funds Transfer API 
 can also be used to return the funds to the sender’s funding source.
 
 ![Using the Funds Transfer API 1](/vd_pull_push.png)
 
 
-__POST /visadirect/fundstransfer/v1/pullfundstransactions__
+__PullFundsTransactions POST__
 
-This API  pulls (debits) funds in a single transaction from a sender's Visa account.
+This API debits (pulls) funds from a Sender's Visa account in preparation for crediting (pushing) funds
+to a recipient's account by initiating a financial message called an Account Funding Transaction (AFT).
+
+It initiates an operation for a single operation.
 
 __PullFundsTransactions GET__
 
@@ -303,8 +309,12 @@ This API gets the status and details for a specific  pull(debit) fund single tra
 
 __MultiPullFundsTransactions POST__
 
-This API pulls(debits) funds from multiple sender's Visa accounts in preparation for pushing(crediting) funds to one or many 
-recipient’s accounts.
+This API debits (pulls) funds from multiple sender's Visa accounts in preparation for crediting(pushing) funds to one or many 
+recipient’s accounts by initiating an extension of the Account Funding Transaction(AFT) financial message.
+
+This API can be used to submit large API requests with multiple transactions to gain operational effeciencies.
+
+This API is initiated for multiple transactions.
 
 __MultiPullFundsTransactions GET__
 
@@ -314,7 +324,10 @@ This API gets the status and details from multiple sender's Visa accounts.
 
 __PushFundsTransactions POST__
 
-This API pushes(credits) funds to a recipient's Visa account.
+This API credits(pushes) funds to a recipient's Visa account by initiating a financial message called an Original 
+Credit Transaction(OCT).
+
+This is initiated for a single transaction.
 
 __PushFundsTransactions GET__
 
@@ -326,11 +339,12 @@ This API credits(pushes) funds to multiple recepient's  Visa accounts.
 
 __MultiPushFundsTransactions GET__
 
-This API gets the status and details for a specific ....
+This API gets the status and details for a specific MultiPushFundsTransactions POST request
 
 __ReverseFundsTransactions POST__
 
-This API credits (pushes back) funds to the sender's Visa account.
+This API credits (pushes back) funds to the sender's Visa account by initiating a financial message called an Accounting Funding 
+Transaction Reversal(AFTR)
 
 __ReverseFundsTransactions GET__
 
