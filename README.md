@@ -454,7 +454,7 @@ william@william-Compaq-610:~/chamaconekt/gocode/src/ChamaconektVisa$ ./Chamacone
 Notice there are two new endpoints that our API is exposing; The ```swagger-ui``` and the 
 ```swagger.json``` 
 
-- The content of the app package:
+The content of the app package:
 
 In the app packages is where the bindings happen between the Go http server and the code.
 
