@@ -294,43 +294,55 @@ can also be used to return the funds to the sender’s funding source.
 
 
 __POST /visadirect/fundstransfer/v1/pullfundstransactions__
+
 This API  pulls (debits) funds in a single transaction from a sender's Visa account.
 
 __PullFundsTransactions GET__
+
 This API gets the status and details for a specific  pull(debit) fund single transaction from a sender's Visa account.
 
 __MultiPullFundsTransactions POST__
+
 This API pulls(debits) funds from multiple sender's Visa accounts in preparation for pushing(crediting) funds to one or many 
 recipient’s accounts.
 
 __MultiPullFundsTransactions GET__
+
 This API gets the status and details from multiple sender's Visa accounts.
 
 ![Using the Funds Transfer API 2](/vd_push.png)
 
 __PushFundsTransactions POST__
+
 This API pushes(credits) funds to a recipient's Visa account.
 
 __PushFundsTransactions GET__
+
 This API gets the status and details for ....
 
 __MultiPushFundsTransactions POST__
+
 This API credits(pushes) funds to multiple recepient's  Visa accounts.
 
 __MultiPushFundsTransactions GET__
+
 This API gets the status and details for a specific ....
 
 __ReverseFundsTransactions POST__
+
 This API credits (pushes back) funds to the sender's Visa account.
 
 __ReverseFundsTransactions GET__
+
 This API gets the status and details for a specific ReverseFundsTransactions POST request.
 
 __MultiReverseFundsTransactions POST__
+
 This API credits(pushes back) funds to multiple sender's Visa accounts by initiating an extension of the Account Funding Transaction 
 Reversal(AFTR) financial message.
 
 __MultiReverseFundsTransactions GET__
+
 This API gets the status and details for a  MultiReverseFundsTransactions POST request.
 
 ### 3.2 Watch List Screening
