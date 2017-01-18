@@ -255,7 +255,7 @@ a Visa card.
 This capability is currently available only in select markets. Please contact your Visa representative for more information.
 
 
-    __- Deposit API__
+__- Deposit API__
 
 THe Deposit API is an internal API that interacts with Visa's [CashInPushPayments POST API]()
 
@@ -388,14 +388,8 @@ solely for such purposes.
 ## 4.0 Implementation
 
 The API service has been described using the goa design language under the directory called design.It has the following files;
+goagen generates a tool by compiling the command specific code generation algorithm together with the design package.
 
-goagen generates  a tool by compiling the command specific code generation algorithm together with the design package.
-
-- The DSL executes which creates in-memory data structures that describe the design.
-
-- The code generation algorithm uses the data structures as input to the final output.
-
-## Implementation
 
 - Generate the bootstrap code using goagen  ```goagen bootstrap -d ChamaconektVisa/design```
 
@@ -460,34 +454,29 @@ william@william-Compaq-610:~/chamaconekt/gocode/src/ChamaconektVisa$ ./Chamacone
 Notice there are two new endpoints that our API is exposing; The ```swagger-ui``` and the 
 ```swagger.json``` 
 
-
-
-
-
 - The content of the app package:
 
-    In the app packages is where the bindings happen between the Go http server and the code.
+In the app packages is where the bindings happen between the Go http server and the code.
 
-    - ```controllers.go ```  Contains the controller interface type definitions. There is one such interface per resource defined in the design language. The file 
-    also contains the code that “mounts” implementations of these controller interfaces onto the service. The exact meaning of “mounting” 
-    a controller is discussed further below.
+   - ```controllers.go ```  Contains the controller interface type definitions. There is one such interface per resource defined in the design language. The file 
+        also contains the code that “mounts” implementations of these controller interfaces onto the service. The exact meaning of “mounting” 
+        a controller is discussed further below.
 
-    - ```contexts.go```    Contains the context data structure definitions. Contexts play a similar role to Martini’s ```martini.Context```, goji’s ```web.C``` 
-    or echo’s ```echo.Context``` to take a few arbitrary examples: they are given as first argument to all controller actions and provide 
-    helper methods to access the request state and write the response.
+   - ```contexts.go```    Contains the context data structure definitions. Contexts play a similar role to Martini’s ```martini.Context```, goji’s ```web.C``` 
+        or echo’s ```echo.Context``` to take a few arbitrary examples: they are given as first argument to all controller actions and provide 
+        helper methods to access the request state and write the response.
 
-    - ```hrefs.go```    Provide global functions for building resource hrefs. Resource hrefs make it possible for responses to link to related resources. goa 
-    knows how to build these hrefs by looking at the request path for the resource “canonical” action (by default the ```show``` action). 
+   - ```hrefs.go```    Provide global functions for building resource hrefs. Resource hrefs make it possible for responses to link to related resources. goa 
+        knows how to build these hrefs by looking at the request path for the resource “canonical” action (by default the ```show``` action). 
 
-    - ```media_types.go```    Contains the media type data structures used by resource actions to build the responses. There is one such data structure generated per 
-    view defined in the design.
+   - ```media_types.go```    Contains the media type data structures used by resource actions to build the responses. There is one such data structure generated per 
+        view defined in the design.
 
-    - ```user_types.go```    Contains the data structures defined via the Type design language function. Such types may be used to define request payloads and 
-    response media types.
+   - ```user_types.go```    Contains the data structures defined via the Type design language function. Such types may be used to define request payloads and 
+        response media types.
 
-    - ```test/```    contains test helpers that make it convenient to test the controller code by making it possible to call the action implementations with 
-    controller input and validate the resulting media types.
-
+   - ```test/```    contains test helpers that make it convenient to test the controller code by making it possible to call the action implementations with 
+        controller input and validate the resulting media types.
 
 
 
