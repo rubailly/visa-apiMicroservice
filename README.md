@@ -133,7 +133,10 @@ payment solution powered by Visa.
 
 Visa is the world's largest global payments company. In 2015, Visa processed $4.9 trillion worth of payment volume on Visa branded cards 
 globally.Visa has 2.4 billion cards in circulation and connects 36 million merchants locations with 14,000 plus financial institutions 
-done approximately 150 million times a day on the globe. Last year, Visa launched the [Visa developer platform](https://developer.visa.com/).
+done approximately 150 million times a day on the globe. 
+
+Last year, Visa launched the [Visa developer platform](https://developer.visa.com/).
+
 This was a transformational development for Visa. It is a significant change in the way Visa will design, build and deliver products going
 forward. It's the first time in Visa's 50 year history that they have made their network, data , risk services , value added services 
 available to partners , clients and others as open APIs.
@@ -173,9 +176,9 @@ originator having to develop and maintain transaction formats for each debit net
 
 Key Features:
 
-    - Push payments to over one billion eligible Visa accounts
-    - Fund transfers from a variety of sources
-    - Use APIs inside ATM, mobile, web, and in-branch applications
+ - Push payments to over one billion eligible Visa accounts
+ - Fund transfers from a variety of sources
+ - Use APIs inside ATM, mobile, web, and in-branch applications
 
 
 ### How does it work?
@@ -298,6 +301,64 @@ __Validate-checkout API__
 The Validate-checkout API is an internal API that interacts with Visa's [Update Payment Information API]()  to provide other Chamaconekt 
 microservices with the status of the transaction and final payment amounts  a client is making in the Visa Checkout .This API confirms, and if needed 
 modify, the amounts the client specified in the Visa Checkout for a transaction.
+
+### Funds Transfer
+
+The PullFundsTransactions Resource debits (pulls) funds from a sender's Visa account (in preparation for pushing funds to a recipient's 
+account) by initiating a financial message called an Account Funding Transaction (AFT)
+
+### POST /visadirect/fundstransfer/v1/pullfundstransactions
+
+This API  pulls (debits) funds in a single transaction from a sender's Visa account.
+
+### PullFundsTransactions GET
+
+This API gets the status and details for a specific  pull(debit) fund single transaction from a sender's Visa account.
+
+### MultiPullFundsTransactions POST
+This API pulls(debits) funds from multiple sender's Visa accounts in preparation for pushing(crediting) funds to one or many 
+recipient’s accounts.
+
+### MultiPullFundsTransactions GET
+This API gets the status and details from multiple sender's Visa accounts.
+
+
+### PushFundsTransactions POST
+This API pushes(credits) funds to a recipient's Visa account.
+
+
+### PushFundsTransactions GET
+This API gets the status and details for ....
+
+
+### MultiPushFundsTransactions POST
+This API credits(pushes) funds to multiple recepient's  Visa accounts.
+
+### MultiPushFundsTransactions GET
+This API gets the status and details for a specific ....
+
+
+### ReverseFundsTransactions POST
+This API credits (pushes back) funds to the sender's Visa account.
+
+
+
+### ReverseFundsTransactions GET
+
+This API gets the status and details for a specific ReverseFundsTransactions POST request.
+
+
+
+### MultiReverseFundsTransactions POST
+
+This API credits(pushes back) funds to multiple sender's Visa accounts by initiating an extension of the Account Funding Transaction 
+Reversal(AFTR) financial message.
+
+
+
+### MultiReverseFundsTransactions GET
+
+This API gets the status and details for a  MultiReverseFundsTransactions POST request.
 
 
 
