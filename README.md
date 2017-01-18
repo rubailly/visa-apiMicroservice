@@ -213,12 +213,14 @@ Visa Direct. Some of the opportunities include:
   - Prepaid Load: Load funds to an eligible Visa reloadable prepaid card
   - Credit Card Bill Pay: Pay a Visa credit card bill
 
-Through the mVisa API, Visa Direct also enables mobile-based merchant payments using push payments. mVisa is presently available only in select markets, so contact your Visa representative for details.
+Through the mVisa API, Visa Direct also enables mobile-based merchant payments using push payments. mVisa is presently available only 
+in select markets, so contact your Visa representative for details.
 
 Using Visa Direct enables new money transfer services with:
 
    - Security: Risk controls and straight-through electronic processing capabilities
-   - Reliability: The reliability of the Visa network and framework of rules and controls to handle exceptions, manage risk and fraud, and provide value-added services
+   - Reliability: The reliability of the Visa network and framework of rules and controls to handle exceptions, manage risk and fraud, 
+   and provide value-added services
    - Speed: Receive funds within 30 minutes from Fast Funds recipient issuers
    - Trust: Financial and anti-money laundering standards and ongoing due diligence
 
@@ -231,40 +233,14 @@ __Who Can Use It?__
    - Independent Developers
    - Governments and Corporations
 
-## 3.0 APIs
+## 3.0 API Design in Chamaconekt Visa
 
-### 3.1 Funds Transfer
-
-The Funds Transfer API pulls funds from a sender’s Visa account (usually to fund a push payment to a recipient’s account) by initiating 
-an Account Funding Transaction. It can then be followed by a push payment to a recipient’s Visa account that initiates an Original Credit
-Transaction. Push payment is a standalone capability and can be used either in conjunction with a pull payment (if the source of funds 
-is a Visa card) or independently (if the source of funds is not a Visa card). Should a push payment be declined, the Funds Transfer API 
-can also be used to return the funds to the sender’s funding source.
-
-![Using the Funds Transfer API 1](/vd_pull_push.png)
-![Using the Funds Transfer API 2](/vd_push.png)
- 
-### 3.2 Watch List Screening
-
-The Watch List Screening API provides a score that evaluates how closely an individual's name, city, and country match to entries in the 
-OFAC SDN watch list. It also provides a status value that indicates if Visa would likely decline a cross-border transaction involving this 
-individual.
-
-### 3.3 mVisa
+### mVisa
 
 The mVisa API has been optimized to push payments for mobile-to-mobile card-less merchant payments as well as for cash in or cash out to 
 a Visa card. This capability is currently available only in select markets. Please contact your Visa representative for more information.
 
 ![Using the mVisa API](/vd_mVisa.png)
- 
-### 3.4 Reports (Beta)
-
-The Reports API provides reporting capabilities such as transaction reconciliation data in the API response. The data needed for 
-reconciliation includes both push (OCT) and pull (AFT) transaction details and any exceptions such as chargebacks and reversals. This 
-data is provided to allow you to reconcile the transactions sent by your systems with what was processed through VisaNet and may be used 
-solely for such purposes.
-
-## API Design in Chamaconekt Visa
 
 __Deposit API__
 
@@ -286,9 +262,13 @@ Upon receiving the payment instructions, the clients issuer (Bank that provided 
 instructions bank account.
 
 The institutions acquirer(a bank or financial institution that processes credit or debit card payments on behalf of a merchant) processes 
-the Visa message, creates a record of merchant payment and reverts back with a response message containing the MerchantPushPayments Response Attributes.
+the Visa message, creates a record of merchant payment and reverts back with a response message containing the MerchantPushPayments 
+Response Attributes.
 
 An acquiring bank is a bank or financial institution that processes credit or debit card payments on behalf of a merchant.
+
+
+### Checkout 
 
 __Checkout API__ 
 
@@ -299,70 +279,74 @@ the data as a convenience.This API retrieves the client's payment information fo
 __Validate-checkout API__
 
 The Validate-checkout API is an internal API that interacts with Visa's [Update Payment Information API]()  to provide other Chamaconekt 
-microservices with the status of the transaction and final payment amounts  a client is making in the Visa Checkout .This API confirms, and if needed 
-modify, the amounts the client specified in the Visa Checkout for a transaction.
+microservices with the status of the transaction and final payment amounts  a client is making in the Visa Checkout .This API confirms, 
+and if needed modify, the amounts the client specified in the Visa Checkout for a transaction.
 
 ### Funds Transfer
 
-The PullFundsTransactions Resource debits (pulls) funds from a sender's Visa account (in preparation for pushing funds to a recipient's 
-account) by initiating a financial message called an Account Funding Transaction (AFT)
+The Funds Transfer API pulls funds from a sender’s Visa account (usually to fund a push payment to a recipient’s account) by initiating 
+an Account Funding Transaction. It can then be followed by a push payment to a recipient’s Visa account that initiates an Original Credit
+Transaction. Push payment is a standalone capability and can be used either in conjunction with a pull payment (if the source of funds 
+is a Visa card) or independently (if the source of funds is not a Visa card). Should a push payment be declined, the Funds Transfer API 
+can also be used to return the funds to the sender’s funding source.
 
-### POST /visadirect/fundstransfer/v1/pullfundstransactions
+![Using the Funds Transfer API 1](/vd_pull_push.png)
 
+
+__POST /visadirect/fundstransfer/v1/pullfundstransactions__
 This API  pulls (debits) funds in a single transaction from a sender's Visa account.
 
-### PullFundsTransactions GET
-
+__PullFundsTransactions GET__
 This API gets the status and details for a specific  pull(debit) fund single transaction from a sender's Visa account.
 
-### MultiPullFundsTransactions POST
+__MultiPullFundsTransactions POST__
 This API pulls(debits) funds from multiple sender's Visa accounts in preparation for pushing(crediting) funds to one or many 
 recipient’s accounts.
 
-### MultiPullFundsTransactions GET
+__MultiPullFundsTransactions GET__
 This API gets the status and details from multiple sender's Visa accounts.
 
+![Using the Funds Transfer API 2](/vd_push.png)
 
-### PushFundsTransactions POST
+__PushFundsTransactions POST__
 This API pushes(credits) funds to a recipient's Visa account.
 
-
-### PushFundsTransactions GET
+__PushFundsTransactions GET__
 This API gets the status and details for ....
 
-
-### MultiPushFundsTransactions POST
+__MultiPushFundsTransactions POST__
 This API credits(pushes) funds to multiple recepient's  Visa accounts.
 
-### MultiPushFundsTransactions GET
+__MultiPushFundsTransactions GET__
 This API gets the status and details for a specific ....
 
-
-### ReverseFundsTransactions POST
+__ReverseFundsTransactions POST__
 This API credits (pushes back) funds to the sender's Visa account.
 
-
-
-### ReverseFundsTransactions GET
-
+__ReverseFundsTransactions GET__
 This API gets the status and details for a specific ReverseFundsTransactions POST request.
 
-
-
-### MultiReverseFundsTransactions POST
-
+__MultiReverseFundsTransactions POST__
 This API credits(pushes back) funds to multiple sender's Visa accounts by initiating an extension of the Account Funding Transaction 
 Reversal(AFTR) financial message.
 
-
-
-### MultiReverseFundsTransactions GET
-
+__MultiReverseFundsTransactions GET__
 This API gets the status and details for a  MultiReverseFundsTransactions POST request.
 
+### 3.2 Watch List Screening
 
+The Watch List Screening API provides a score that evaluates how closely an individual's name, city, and country match to entries in the 
+OFAC SDN watch list. It also provides a status value that indicates if Visa would likely decline a cross-border transaction involving this 
+individual.
+ 
+### 3.4 Reports (Beta)
 
-## 4.0 API Design
+The Reports API provides reporting capabilities such as transaction reconciliation data in the API response. The data needed for 
+reconciliation includes both push (OCT) and pull (AFT) transaction details and any exceptions such as chargebacks and reversals. This 
+data is provided to allow you to reconcile the transactions sent by your systems with what was processed through VisaNet and may be used 
+solely for such purposes.
+
+## 5.0 Implementation
 
 The API service has been described using the goa design language under the directory called design.It has the following files;
 
