@@ -492,24 +492,24 @@ goa-ChamaconektVisa
 
 Once running `goa-ChamaconektVisa` listens on port 8080. 
 
-# Contributing 
+## 5.0 Contributing 
 
-## How to contribute
+### How to contribute
 We're striving to keep master's history with minimal merge bubbles. To achieve this, we're asking pull requests to be submitted 
 on top of master.
 
-## Finding things to work on
+### Finding things to work on
 The first place to start is always looking over the current github issues for the project you are interested in contributing to.Issues 
 marked with __help wanted__ are usually pretty self contained and a good place to get started. Chamaconekt also uses these same github 
 issues to keep track of what we are working on.If you see any issues that are assigned to a particular person that means someone is 
 currently working on that issue.Of course feel free to make your own issues if you think something needs to be added or fixed.
 
 
-## Basic quality checks
+### Basic quality checks
 Please ensure that all tests pass before submitting changes.Try to separate logically distinct changes into separate commits and 
 thematically distinct commits into separate pull requests.
 
-## Submitting changes
+### Submitting changes
 Please sign the [Contributor License Agreement](http://bit.ly/2gtLB0J). All content, comments, and pull requests must follow the
 [Chamaconekt Community Guidelines]()
 
@@ -520,26 +520,26 @@ Submit a pull request on top of master
 At this point you're waiting on us.We like to at least comment on pull requests within one week (and typically, three business days).
 We may suggest some changes or improvements or alternatives.
 
-# Versioning
+## 6.0 Versioning
 We use [SemVer](http://semver.org/) for versioning.
 
-# Authors
+## 7.0 Authors
 - [William Ondenge](https://github.com/wondenge)
 
-# License
+## 8.0 License
 This project is licensed under the [Apache 2.0 License](https://www.apache.org/licenses/) 
 - see the [LICENSE]() file for details
 
 
-## Resources
+## 9.0 Resources
 
-[Visa Developer Summit at MWC 2016 ](https://www.youtube.com/watch?v=G2cTfiERHpE&t=2211s)
+1. [Visa Developer Summit at MWC 2016 ](https://www.youtube.com/watch?v=G2cTfiERHpE&t=2211s)
 
-[Building Microservice Architectures with Go](https://www.youtube.com/watch?v=dVnMLtdJzn4&t=1186s)
+2. [Building Microservice Architectures with Go](https://www.youtube.com/watch?v=dVnMLtdJzn4&t=1186s)
 
-[Principles Of Microservices by Sam Newman](https://www.youtube.com/watch?v=PFQnNFe27kU)
+3. [Principles Of Microservices by Sam Newman](https://www.youtube.com/watch?v=PFQnNFe27kU)
 
-[GOTO 2014 • Microservices • Martin Fowler](https://www.youtube.com/watch?v=wgdBVIX9ifA)
+4. [GOTO 2014 • Microservices • Martin Fowler](https://www.youtube.com/watch?v=wgdBVIX9ifA)
 
 
 
