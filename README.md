@@ -30,7 +30,7 @@ better, faster, cheaper services that make them an even more essential part of e
 To make the impact positive, banks are acknowledging that they need to shake themselves out of institutional complacency and recognize 
 that merely navigating waves of regulation and waiting for interest rates to rise won’t protect them from obsolescence. 
 
-## Emerging themes for banking players
+### Emerging themes for banking players
 
 Openness, Collaboration and Investment are the critical themes that emerge for existing banking players if they are to benefit from 
 growth driven by new services and productivity. 
@@ -54,7 +54,7 @@ the younger consumers wouldn’t even comprehend a bank that doesn’t have an a
 account-based services (look up my balance, view my transactions, deposit my checks, etc.), the app competition has moved on to more 
 innovative features.
 
-## Examples
+### Examples
 
 __i.) Capital One Bank__
 
