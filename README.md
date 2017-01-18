@@ -65,6 +65,8 @@ The new developer portal provides a single point of reference for the bank’s e
 portal contains all the features that are now considered best practice for developer engagement including self-serve registration and 
 instant API access, sandbox testing environments, documentation, code snippets, and reference applications with sample code.
 
+[![capitalone](/capitalone.png)](https://developer.capitalone.com/)
+
 The developer portal gives developers what they are looking for: easy-to-integrate APIs, a robust testing environment, great documentation
 that is comprehensive and simple, and sample code and reference applications.
 
@@ -73,16 +75,18 @@ Capital One is one of the first banks around theworld going after developers as 
 The portal will also become the home base for Capital One’s open source projects. Capital One’s foray into open source demonstrates both 
 the company’s own internal reliance on APIs, and their willingness to share dev tools with the community. 
 
-[![capitalone](/capitalone.png)](https://developer.capitalone.com/)
+
 
 __ii.) Mondo__
 
 At Monzo they are building a new kind of bank, built for your smartphone. The company, founded in early 2015, now has over 60 employees. 
 In August 2016 Monzo officially became a regulated bank and will be launching current accounts in a matter of months.
 
+[![mondo](/mondo.png)](https://monzo.com/)
+
 Over 60,000 people in the UK are using the Monzo app as part of our Beta, on iOS or on Android, with hundreds more joining every day.
 
-[![mondo](/mondo.png)](https://monzo.com/)
+
 
 __iii.) Visa__
 
@@ -92,6 +96,8 @@ Visa announced in 2016 the launch of Visa Developer, which will enable software 
 payments technology, products and service. What this means is that, for the first time in Visa’s near 60 years of existence, it is 
 now ensuring its retail payments network is an open platform to be a source that Visa believes will “drive innovation in payments in 
 commerce.”
+
+[![visa](/visa.png)](https://developer.visa.com/)
 
 The goal of the new developer platform is to assist financial institutions, merchants, and technology companies with meeting the 
 demands of consumers and merchants who are increasingly relying on devices to not only shop, but pay and get paid.
@@ -104,12 +110,14 @@ according to Visa.
 The Visa Developer Platform has been a multi-year initiative under the umbrella of Visa’s global product and technology teams. That 
 team has been leading the charge to transform Visa’s payment products and services into APIs for developers to use.
 
-[![visa](/visa.png)](https://developer.visa.com/)
+
 
 __iv.) Mastercard__
 
 At the beginning of 2016, the mission for Mastercard was to “move beyond the payment.” The idea was to continue the mission of enabling 
 commerce for every device while at the same time build new ways for companies to build relationships and engagement with customers.
+
+[![mastercard](/mastercard.png)](https://developer.mastercard.com/)
 
 This mission of enable and extend is taking a significant step forward from an implementation level. Mastercard announced that it has 
 redeveloped and re-launched its developer platform to make it much easier for developers to integrate Mastercard APIs to handle all kinds 
@@ -118,7 +126,7 @@ of payments integration, customer intelligence, new device types and even financ
 The Mastercard Developers platform will includes application programming interfaces—some new, some old—and introduces several new 
 features to make it easier to build with Mastercard technology.
 
-[![mastercard](/mastercard.png)](https://developer.mastercard.com/)
+
 
 
 ## 2.0 Chamaconekt Visa 
@@ -233,24 +241,29 @@ __Who Can Use It?__
    - Independent Developers
    - Governments and Corporations
 
+
+
 ## 3.0 API Design in Chamaconekt Visa
 
-### mVisa
+### 3.1 mVisa
 
 The mVisa API has been optimized to push payments for mobile-to-mobile card-less merchant payments as well as for cash in or cash out to 
-a Visa card. This capability is currently available only in select markets. Please contact your Visa representative for more information.
+a Visa card. 
 
 ![Using the mVisa API](/vd_mVisa.png)
 
-__Deposit API__
+This capability is currently available only in select markets. Please contact your Visa representative for more information.
+
+
+__- Deposit API__
 
 THe Deposit API is an internal API that interacts with Visa's [CashInPushPayments POST API]()
 
-__Withdrawal API__ 
+__- Withdrawal API__ 
 
 The Withdrawal API is an internal API that interacts with Visa's [CashOutPushPayments POST]()
 
-__Payment API__ 
+__- Payment API__ 
 
 The Payment API is an internal API that interacts with Visa's [MerchantPushPayments POST]() that 
 
@@ -268,21 +281,21 @@ Response Attributes.
 An acquiring bank is a bank or financial institution that processes credit or debit card payments on behalf of a merchant.
 
 
-### Checkout 
+### 3.2 Checkout 
 
-__Checkout API__ 
+__- Checkout API__ 
 
 The Checkout API is an internal API that interacts with Visa's [Get Payment Data API](https://developer.visa.com/products/visa_checkout/reference#visa_checkout__get_payment_data_api) 
 that obtains clients payment information associated with a payment request from a Visa Checkout transaction.ChamaconektVisa processes
 the data as a convenience.This API retrieves the client's payment information for a particular order. 
 
-__Validate-checkout API__
+__- Validate-checkout API__
 
 The Validate-checkout API is an internal API that interacts with Visa's [Update Payment Information API]()  to provide other Chamaconekt 
 microservices with the status of the transaction and final payment amounts  a client is making in the Visa Checkout .This API confirms, 
 and if needed modify, the amounts the client specified in the Visa Checkout for a transaction.
 
-### Funds Transfer API v1
+### 3.3 Funds Transfer API v1
 
 The Funds Transfer API pulls funds from a sender’s Visa account (usually to fund a push payment to a recipient’s account) by initiating 
 an Account Funding Transaction. 
@@ -296,18 +309,18 @@ can also be used to return the funds to the sender’s funding source.
 ![Using the Funds Transfer API 1](/vd_pull_push.png)
 
 
-__PullFundsTransactions POST__
+__- PullFundsTransactions POST__
 
 This API debits (pulls) funds from a Sender's Visa account in preparation for crediting (pushing) funds
 to a recipient's account by initiating a financial message called an Account Funding Transaction (AFT).
 
 It initiates an operation for a single operation.
 
-__PullFundsTransactions GET__
+__- PullFundsTransactions GET__
 
 This API gets the status and details for a specific  pull(debit) fund single transaction from a sender's Visa account.
 
-__MultiPullFundsTransactions POST__
+__- MultiPullFundsTransactions POST__
 
 This API debits (pulls) funds from multiple sender's Visa accounts in preparation for crediting(pushing) funds to one or many 
 recipient’s accounts by initiating an extension of the Account Funding Transaction(AFT) financial message.
@@ -316,32 +329,32 @@ This API can be used to submit large API requests with multiple transactions to 
 
 This API is initiated for multiple transactions.
 
-__MultiPullFundsTransactions GET__
+__- MultiPullFundsTransactions GET__
 
 This API gets the status and details from multiple sender's Visa accounts.
 
 ![Using the Funds Transfer API 2](/vd_push.png)
 
-__PushFundsTransactions POST__
+__- PushFundsTransactions POST__
 
 This API credits(pushes) funds to a recipient's Visa account by initiating a financial message called an Original 
 Credit Transaction(OCT).
 
 This is initiated for a single transaction.
 
-__PushFundsTransactions GET__
+__- PushFundsTransactions GET__
 
 This API gets the status and details for ....
 
-__MultiPushFundsTransactions POST__
+__- MultiPushFundsTransactions POST__
 
 This API credits(pushes) funds to multiple recepient's  Visa accounts.
 
-__MultiPushFundsTransactions GET__
+__- MultiPushFundsTransactions GET__
 
 This API gets the status and details for a specific MultiPushFundsTransactions POST request
 
-__ReverseFundsTransactions POST__
+__- ReverseFundsTransactions POST__
 
 This API credits (pushes back) funds to the sender's Visa account by initiating a financial message called an Accounting Funding 
 Transaction Reversal(AFTR)
@@ -350,29 +363,29 @@ __ReverseFundsTransactions GET__
 
 This API gets the status and details for a specific ReverseFundsTransactions POST request.
 
-__MultiReverseFundsTransactions POST__
+__- MultiReverseFundsTransactions POST__
 
 This API credits(pushes back) funds to multiple sender's Visa accounts by initiating an extension of the Account Funding Transaction 
 Reversal(AFTR) financial message.
 
-__MultiReverseFundsTransactions GET__
+__- MultiReverseFundsTransactions GET__
 
 This API gets the status and details for a  MultiReverseFundsTransactions POST request.
 
-### 3.2 Watch List Screening
+### 3.4 Watch List Screening
 
 The Watch List Screening API provides a score that evaluates how closely an individual's name, city, and country match to entries in the 
 OFAC SDN watch list. It also provides a status value that indicates if Visa would likely decline a cross-border transaction involving this 
 individual.
  
-### 3.4 Reports (Beta)
+### 3.5 Reports (Beta)
 
 The Reports API provides reporting capabilities such as transaction reconciliation data in the API response. The data needed for 
 reconciliation includes both push (OCT) and pull (AFT) transaction details and any exceptions such as chargebacks and reversals. This 
 data is provided to allow you to reconcile the transactions sent by your systems with what was processed through VisaNet and may be used 
 solely for such purposes.
 
-## 5.0 Implementation
+## 4.0 Implementation
 
 The API service has been described using the goa design language under the directory called design.It has the following files;
 
